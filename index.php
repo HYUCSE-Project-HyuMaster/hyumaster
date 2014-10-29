@@ -36,6 +36,10 @@
 
 <body>
 	<div id='fb-root'></div>
+	
+	<?php
+		phpinfo();
+	?>
 
 </body>
 
