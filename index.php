@@ -36,6 +36,8 @@
 <body>
 	<div id='fb-root'></div>
 
+	<div id='emptyspace'></div>
+
 	<div class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
