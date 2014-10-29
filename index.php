@@ -10,6 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<script src='/js/jquery-2.1.1.min.js'></script>
 	<script src='/js/main.js'></script>
+	<script src='/js/bootstrap.min.js'></script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
 	<link href="/css/main.css" rel="stylesheet" media="screen">
 
 	<script>
