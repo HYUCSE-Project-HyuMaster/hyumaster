@@ -3,6 +3,12 @@
 <html>
 
 <head>
+	<?php
+		if(!$_SERVER['HTTPS'])
+		{
+			header("Location: https://hyumaster.inoutsw.com");
+		}
+	?>
 	<title>HyuMaster</title>
 	<meta charset='utf-8'>
 	<meta name='description' content='HyuMaster'>
