@@ -73,9 +73,9 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">Default</a></li>
-					<li><a href="#">Static top</a></li>
-					<li class="active"><a href="#">Fixed top</a></li>
+					<li><a href="#">Test1</a></li>
+					<li><a href="#">Test2</a></li>
+					<li class="active"><a href="#">로그인</a></li>
 				</ul>
 			</div>
 		</div>
