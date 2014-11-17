@@ -15,20 +15,27 @@
 <body>
 	<div id='map'></div>
 	<script>
-		var oSeoulCityPoint = new nhn.api.map.LatLng(37.5675451, 126.9773356);
-		var defaultLevel = 11;
+		var oHanyangUnivPoint = new nhn.api.map.LatLng(127, 37.5);
+		var defaultLevel = 6;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
-						point : oSeoulCityPoint,
+						point : oHanyangUnivPoint,
 						zoom : defaultLevel,
-						enableWheelZoom : true,
+						enableWheelZoom : false,
 						enableDragPan : true,
-						enableDblClickZoom : false,
+						enableDblClickZoom : true,
 						mapMode : 0,
 						activateTrafficMap : false,
 						activateBicycleMap : false,
+<<<<<<< HEAD
 						minMaxLevel : [ 1, 14 ],
 						size : new nhn.api.map.Size(800, 480)		
 					});
+=======
+						minMaxLevel : [ 1, 6 ],
+						size : new nhn.api.map.Size(800, 480),
+						detectCoveredMarker : true
+						});
+>>>>>>> FETCH_HEAD
 		var oSlider = new nhn.api.map.ZoomControl();
 		oMap.addControl(oSlider);
 		oSlider.setPosition({
@@ -49,27 +56,6 @@
 			right : 10
 		});
 		oMap.addControl(oThemeMapBtn);
-
-		var oBicycleGuide = new nhn.api.map.BicycleGuide(); // - 자전거 범례 선언
-		oBicycleGuide.setPosition({
-			top : 10,
-			right : 10
-		}); // - 자전거 범례 위치 지정
-		oMap.addControl(oBicycleGuide);// - 자전거 범례를 지도에 추가.
-
-		var oTrafficGuide = new nhn.api.map.TrafficGuide(); // - 교통 범례 선언
-		oTrafficGuide.setPosition({
-			bottom : 30,
-			left : 10
-		});  // - 교통 범례 위치 지정.
-		oMap.addControl(oTrafficGuide); // - 교통 범례를 지도에 추가.
-
-		var trafficButton = new nhn.api.map.TrafficMapBtn(); // - 실시간 교통지도 버튼 선언
-		trafficButton.setPosition({
-			bottom:10, 
-			right:150
-		}); // - 실시간 교통지도 버튼 위치 지정
-		oMap.addControl(trafficButton);
 
 		var oSize = new nhn.api.map.Size(28, 37);
 		var oOffset = new nhn.api.map.Size(14, 37);
