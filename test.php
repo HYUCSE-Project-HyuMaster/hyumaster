@@ -18,7 +18,7 @@
 		var oSeoulCityPoint = new nhn.api.map.LatLng(37.5675451, 126.9773356);
 		var defaultLevel = 11;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
-						point : oSeoulCityPoint,
+						point : (127,37.5),
 						zoom : defaultLevel,
 						enableWheelZoom : false,
 						enableDragPan : true,
