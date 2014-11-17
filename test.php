@@ -20,14 +20,16 @@
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
 						point : oSeoulCityPoint,
 						zoom : defaultLevel,
-						enableWheelZoom : true,
+						enableWheelZoom : false,
 						enableDragPan : true,
 						enableDblClickZoom : false,
-						mapMode : 0,
+						mapMode : 1,
 						activateTrafficMap : false,
 						activateBicycleMap : false,
-						minMaxLevel : [ 1, 14 ],
-						size : new nhn.api.map.Size(800, 480)		});
+						minMaxLevel : [ 1, 6 ],
+						size : new nhn.api.map.Size(800, 480),
+						detectCoveredMarker : true
+						});
 		var oSlider = new nhn.api.map.ZoomControl();
 		oMap.addControl(oSlider);
 		oSlider.setPosition({
