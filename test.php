@@ -51,27 +51,6 @@
 		});
 		oMap.addControl(oThemeMapBtn);
 
-		var oBicycleGuide = new nhn.api.map.BicycleGuide(); // - 자전거 범례 선언
-		oBicycleGuide.setPosition({
-			top : 10,
-			right : 10
-		}); // - 자전거 범례 위치 지정
-		oMap.addControl(oBicycleGuide);// - 자전거 범례를 지도에 추가.
-
-		var oTrafficGuide = new nhn.api.map.TrafficGuide(); // - 교통 범례 선언
-		oTrafficGuide.setPosition({
-			bottom : 30,
-			left : 10
-		});  // - 교통 범례 위치 지정.
-		oMap.addControl(oTrafficGuide); // - 교통 범례를 지도에 추가.
-
-		var trafficButton = new nhn.api.map.TrafficMapBtn(); // - 실시간 교통지도 버튼 선언
-		trafficButton.setPosition({
-			bottom:10, 
-			right:150
-		}); // - 실시간 교통지도 버튼 위치 지정
-		oMap.addControl(trafficButton);
-
 		var oSize = new nhn.api.map.Size(28, 37);
 		var oOffset = new nhn.api.map.Size(14, 37);
 		var oIcon = new nhn.api.map.Icon('//static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
