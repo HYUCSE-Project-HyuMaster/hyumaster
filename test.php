@@ -23,7 +23,7 @@
 						enableWheelZoom : false,
 						enableDragPan : true,
 						enableDblClickZoom : true,
-						mapMode : 1,
+						mapMode : 0,
 						activateTrafficMap : false,
 						activateBicycleMap : false,
 						minMaxLevel : [ 1, 6 ],
