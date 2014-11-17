@@ -72,7 +72,7 @@
 
 		var oSize = new nhn.api.map.Size(28, 37);
 		var oOffset = new nhn.api.map.Size(14, 37);
-		var oIcon = new nhn.api.map.Icon('//static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
+		var oIcon = new nhn.api.map.Icon('http://static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
 
 		var oInfoWnd = new nhn.api.map.InfoWindow();
 		oInfoWnd.setVisible(false);
