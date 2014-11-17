@@ -27,7 +27,8 @@
 						activateTrafficMap : false,
 						activateBicycleMap : false,
 						minMaxLevel : [ 1, 14 ],
-						size : new nhn.api.map.Size(800, 480)		});
+						size : new nhn.api.map.Size(800, 480)		
+					});
 		var oSlider = new nhn.api.map.ZoomControl();
 		oMap.addControl(oSlider);
 		oSlider.setPosition({
