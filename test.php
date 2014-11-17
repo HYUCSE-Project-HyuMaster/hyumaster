@@ -22,11 +22,11 @@
 						zoom : defaultLevel,
 						enableWheelZoom : false,
 						enableDragPan : true,
-						enableDblClickZoom : false,
-						mapMode : 0,
-						activateTrafficMap : false,
-						activateBicycleMap : false,
-						minMaxLevel : [ 1, 6 ],
+						enableDblClickZoom : true,
+						mapMode : 1,
+						activateTrafficMap : true,
+						activateBicycleMap : true,
+						minMaxLevel : [ 1, 14 ],
 						size : new nhn.api.map.Size(800, 480),
 						detectCoveredMarker : true
 						});
