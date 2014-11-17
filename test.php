@@ -15,18 +15,18 @@
 <body>
 	<div id='map'></div>
 	<script>
-		var oSeoulCityPoint = new nhn.api.map.LatLng(37.5675451, 126.9773356);
-		var defaultLevel = 11;
+		var oHanyangUnivPoint = new nhn.api.map.LatLng(127, 37.5);
+		var defaultLevel = 6;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
-						point : (127,37.5),
+						point : oHanyangUnivPoint,
 						zoom : defaultLevel,
 						enableWheelZoom : false,
 						enableDragPan : true,
 						enableDblClickZoom : true,
 						mapMode : 1,
-						activateTrafficMap : true,
-						activateBicycleMap : true,
-						minMaxLevel : [ 1, 14 ],
+						activateTrafficMap : false,
+						activateBicycleMap : false,
+						minMaxLevel : [ 1, 6 ],
 						size : new nhn.api.map.Size(800, 480),
 						detectCoveredMarker : true
 						});
