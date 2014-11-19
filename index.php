@@ -98,11 +98,11 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h4 class="modal-title">Modal title</h4>
+						<h4 class="modal-title">Facebook Login</h4>
 					</div>
 
-					<div class="modal-body">
-						...
+					<div class="modal-body" id='login-state'>
+						
 					</div>
 
 					<div class="modal-footer">
@@ -116,7 +116,14 @@
 
 	<!--로그인 관련 팝업창 및 스크립트 시작-->
 	<script>
-
+		FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+				$('#login-state').html("로그인 상태입니다.");
+			}
+			else {
+				FB.login();
+			}
+		});
 	</script>
 	<!--로그인 관련 팝업창 및 스크립트 종료-->
 
