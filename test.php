@@ -15,7 +15,7 @@
 <body>
 	<div id='map'></div>
 	<script>
-		var oHanyangUnivPoint = new nhn.api.map.LatLng(127, 37.5);
+		var oHanyangUnivPoint = new nhn.api.map.LatLng(127.0466885,37.5575910);
 		var defaultLevel = 2;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
 						point : oHanyangUnivPoint,
