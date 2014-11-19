@@ -82,14 +82,37 @@
 					$(document).ready(function() {
 						$('#loginbutton').on({
 							click: function() {
-								FB.getLoginStatus(function(response) {
-									if (response.status === 'connected') {
-										alert('login state.');
-									}
-									else {
-										FB.login();
-									}
-								});
+								FB.login(function(response){
+							 		FB.getLoginStatus(function(response) {
+										if (response.status === 'connected')
+										{
+											var request_data={
+												'Auth_Type': 'Facebook',
+												'AccessToken': response.authResponse.accessToken
+											};
+
+											alert('Login Success');
+
+											/*
+											$.ajax({
+												url: './login_facebook.php',
+												data: request_data,
+												type: 'POST',
+												success: function(response){
+													if(response.result==='success')
+													{
+														document.location.href='/';
+													}
+													else if(response.result==='fail')
+													{
+														alert(response.server_message);
+													}
+												}
+											});
+											*/
+										}
+									});
+							 	});
 							}
 						});
 
