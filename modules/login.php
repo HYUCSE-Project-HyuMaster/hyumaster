@@ -25,4 +25,108 @@
 	use Facebook\FacebookRequest;
 	use Facebook\FacebookSession;
 	use Facebook\GraphObject;
+
+	//로그인 상태 체크입니다.
+	require('./session_initiate.php');
+
+	if(isset($_SESSION['UserID']) && isset($_SESSION['GroupDB']))
+	{
+		header('Location: http://'.$_SERVER['HTTP_HOST'].'/');
+		exit;
+	}
+	else
+	{
+		session_unset();
+		session_destroy();
+	}
+	//여기까지가 로그인 상태 체크 코드입니다.
+
+	//여기서부터 Facebook 인증 과정 코드입니다.
+	header('Content-Type: application/json');
+
+	require('../modules/session_initiate.php');
+	FacebookSession::setDefaultApplication('972582816088954', '648f2d3ba8d255b6e56ce869625e697f');
+	$session = new FacebookSession($_POST['AccessToken']);
+
+	try {
+		$session->validate();
+	} catch (FacebookRequestException $ex) {
+		// Session not valid, Graph API returned an exception with the reason.
+
+		$response=array('result'=>'fail', 'server_message'=>$ex->getMessage());
+		echo json_encode($response);
+
+		session_unset();
+		session_destroy();
+
+		exit;
+	} catch (\Exception $ex) {
+		// Graph API returned info, but it may mismatch the current app or have expired.
+
+		$response=array('result'=>'fail', 'server_message'=>$ex->getMessage());
+		echo json_encode($response);
+
+		session_unset();
+		session_destroy();
+		exit;
+	}
+
+	$UserID="";
+	$UserName="";
+
+	if($session) {
+		try {
+	    	$user_profile = (new FacebookRequest($session, 'GET', '/me'))->execute()->getGraphObject(GraphUser::className());
+
+	    	$UserName=$user_profile->getName();
+	    	$UserID=$user_profile->getId();
+  		}
+  		catch(FacebookRequestException $e)
+  		{
+  			$message='Exception occured, code: ' . $e->getCode() . ' with message: ' . $e->getMessage();
+  			$response=array('result'=>'fail', 'server_message'=>$message);
+			echo json_encode($response);
+
+   			session_unset();
+			session_destroy();
+			exit;
+		}   
+	}
+	//여기까지가 Facebook인증과정 코드입니다.
+
+
+	//DB 연걸 부분입니다.
+	/*
+	require '../modules/database_connect_login1.php';
+
+	$querystr=sprintf("SELECT * FROM UserList WHERE Auth_Type='Facebook' AND UserID='%s';", $mysql_link->real_escape_string($UserID));
+	$result=$mysql_link->query($querystr);
+	if(!$result)
+	{
+		$response=array('result'=>'fail', 'server_message'=>'Database Query Error');
+		echo json_encode($response);
+
+		session_unset();
+		session_destroy();
+
+		exit;
+	}
+
+	if($result->num_rows == 0)
+	{
+		$response=array('result'=>'fail', 'server_message'=>'등록되지 않은 계정입니다. 계정 인증 후 다시 시도해주세요.');
+		echo json_encode($response);
+
+		session_unset();
+		session_destroy();
+
+		exit;
+	}
+
+	require '../modules/database_connect_login2.php';
+	*/
+	//여기까지가 DB연결 부분입니다.
+
+	$response=array('result'=>'success');
+	echo json_encode($response);
 ?>

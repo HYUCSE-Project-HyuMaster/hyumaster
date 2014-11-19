@@ -91,11 +91,8 @@
 												'AccessToken': response.authResponse.accessToken
 											};
 
-											alert('Login Success');
-
-											/*
 											$.ajax({
-												url: './login_facebook.php',
+												url: './modules/login.php',
 												data: request_data,
 												type: 'POST',
 												success: function(response){
@@ -109,7 +106,6 @@
 													}
 												}
 											});
-											*/
 										}
 									});
 							 	});
