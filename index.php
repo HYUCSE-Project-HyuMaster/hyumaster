@@ -84,6 +84,8 @@
 	</div>
 	<!--상단바 부분 종료-->
 
+	<div id='emptyspace'></div>
+
 	<div id='map'></div>
 
 	<!--중앙 내용 시작-->
