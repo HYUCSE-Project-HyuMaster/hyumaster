@@ -23,7 +23,7 @@
 		y=w.innerHeight || e.clientHeight || g.clientHeight;
 	
 		var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
-		var defaultLevel = 12;
+		var defaultLevel = 11;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
 						point : oHanyangUnivPoint,
 						zoom : defaultLevel,
