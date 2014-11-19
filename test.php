@@ -15,10 +15,12 @@
 <body>
 	<div id='map'></div>
 	<script>
-		var oHanyangUnivPoint = new nhn.api.map.LatLng(127.0466885,37.5575910);
+		var oSeoulCityPoint = new nhn.api.map.LatLng(37.567451, 126.9773356);
+		//var oHanyangUnivPoint = new nhn.api.map.LatLng(127.0466885,37.5575910);
 		var defaultLevel = 2;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
-						point : oHanyangUnivPoint,
+		//				point : oHanyangUnivPoint,
+						point : oSeoulCityPoint,
 						zoom : defaultLevel,
 						enableWheelZoom : true,
 						enableDragPan : true,
@@ -51,13 +53,16 @@
 		var oSize = new nhn.api.map.Size(28, 37);
 		var oOffset = new nhn.api.map.Size(14, 37);
 		var oIcon = new nhn.api.map.Icon('//static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
+		
 		var oInfoWnd = new nhn.api.map.InfoWindow();
 		oInfoWnd.setVisible(false);
 		oMap.addOverlay(oInfoWnd);
+		
 		oInfoWnd.setPosition({
 			top : 20,
 			left :20
 		});
+		
 		var oLabel = new nhn.api.map.MarkerLabel(); // - 마커 라벨 선언.
 		oMap.addOverlay(oLabel); // - 마커 라벨 지도에 추가. 기본은 라벨이 보이지 않는 상태로 추가됨.
 		oInfoWnd.attach('changeVisible', function(oCustomEvent) {
