@@ -39,15 +39,6 @@ $(document).ready(function() {
 	});
 
 	//Naver Map API Script Start
-	/*
-	var w=window,
-	d=document,
-	e=d.documntElement,
-	g=d.getElementsByTagName('body')[0],
-	x=w.innerWidth || e.clientWidth || g.clintWidth,
-	y=w.innerHeight || e.clientHeight || g.clientHeight;
-	*/
-
 	var x=$(window).width();
 	var y=$(window).height();
 
