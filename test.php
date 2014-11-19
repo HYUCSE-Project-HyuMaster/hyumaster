@@ -17,7 +17,7 @@
 	<script>
 		var oSeoulCityPoint = new nhn.api.map.LatLng(37.567451, 126.9773356);
 		//var oHanyangUnivPoint = new nhn.api.map.LatLng(127.0466885,37.5575910);
-		var defaultLevel = 2;
+		var defaultLevel = 12;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
 		//				point : oHanyangUnivPoint,
 						point : oSeoulCityPoint,
@@ -28,7 +28,7 @@
 						mapMode : 0,
 						activateTrafficMap : false,
 						activateBicycleMap : false,
-						minMaxLevel : [ 1, 6 ],
+						minMaxLevel : [ 9, 14 ],
 						size : new nhn.api.map.Size(800, 480)		});
 		var oSlider = new nhn.api.map.ZoomControl();
 		oMap.addControl(oSlider);
