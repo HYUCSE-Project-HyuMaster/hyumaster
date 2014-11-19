@@ -62,19 +62,6 @@ $(document).ready(function() {
 		top : 10,
 		left : 10
 	});
-	var oMapTypeBtn = new nhn.api.map.MapTypeBtn();
-	oMap.addControl(oMapTypeBtn);
-	oMapTypeBtn.setPosition({
-		bottom : 10,
-		right : 80
-	});
-	
-	var oThemeMapBtn = new nhn.api.map.ThemeMapBtn();
-	oThemeMapBtn.setPosition({
-		bottom : 10,
-		right : 10
-	});
-	oMap.addControl(oThemeMapBtn);
 	
 	var oSize = new nhn.api.map.Size(28, 37);
 	var oOffset = new nhn.api.map.Size(14, 37);
