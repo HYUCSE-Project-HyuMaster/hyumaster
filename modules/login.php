@@ -27,7 +27,7 @@
 	use Facebook\GraphObject;
 
 	//로그인 상태 체크입니다.
-	require('./session_initiate.php');
+	require('./initialize.php');
 
 	if(isset($_SESSION['UserID']) && isset($_SESSION['GroupDB']))
 	{
@@ -44,7 +44,7 @@
 	//여기서부터 Facebook 인증 과정 코드입니다.
 	header('Content-Type: application/json');
 
-	require('./session_initiate.php');
+	require('./initialize.php');
 	FacebookSession::setDefaultApplication('972582816088954', '648f2d3ba8d255b6e56ce869625e697f');
 	$session = new FacebookSession($_POST['AccessToken']);
 
