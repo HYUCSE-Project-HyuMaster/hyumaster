@@ -6,3 +6,7 @@ body {
 #emptyspace {
 	height: 100px;
 }
+
+#map {
+	bottom: 0;
+}
