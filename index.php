@@ -72,19 +72,15 @@
 				<ul class='nav navbar-nav navbar-right'>
 					<?php
 						if(isset($_SESSION['login_state']) && $_SESSION['login_state']==true)
-							echo "<li class='active'><a href='#' id='loginbutton'>로그아웃</a></li>";
+							echo "<li class='active'><a href='#' id='loginbutton' data-toggle='modal' data-target='#myModal'>로그아웃</a></li>";
 						else
-							echo "<li class='active'><a href='#' id='loginbutton'>로그인</a></li>";
+							echo "<li class='active'><a href='#' id='loginbutton' data-toggle='modal' data-target='#myModal'>로그인</a></li>";
 					?>
 				</ul>
 			</div>
 			<!--네비게이션 바(메뉴) 부분 종료-->
 
 			<!--로그인 팝업창 소스 시작-->
-				<!-- Button trigger modal -->
-				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-					Launch demo modal
-				</button>
 				<!-- Modal -->
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -97,7 +93,7 @@
 							<div class="modal-body">
 								...
 							</div>
-							
+
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								<button type="button" class="btn btn-primary">Save changes</button>
