@@ -46,8 +46,8 @@ $(document).ready(function() {
 	x=w.innerWidth || e.clientWidth || g.clintWidth,
 	y=w.innerHeight || e.clientHeight || g.clientHeight;
 
-	if(x>720)
-		x=720;
+	if(x>1170)
+		x=1170;
 
 	var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
 	var defaultLevel = 11;
