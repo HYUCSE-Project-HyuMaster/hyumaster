@@ -98,6 +98,7 @@
 												success: function(response){
 													if(response.result==='success')
 													{
+														alert('success');
 														document.location.href='/';
 													}
 													else if(response.result==='fail')
