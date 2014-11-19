@@ -15,7 +15,7 @@
 <body>
 	<div id='map'></div>
 	<script>
-		var oSeoulCityPoint = new nhn.api.map.LatLng(37.567451, 126.9773356);
+		var oSeoulCityPoint = new nhn.api.map.LatLng(127.046695, 37.5575442);
 		//var oHanyangUnivPoint = new nhn.api.map.LatLng(127.0466885,37.5575910);
 		var defaultLevel = 12;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
