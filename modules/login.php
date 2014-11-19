@@ -44,7 +44,7 @@
 	//여기서부터 Facebook 인증 과정 코드입니다.
 	header('Content-Type: application/json');
 
-	require('../modules/session_initiate.php');
+	require('./session_initiate.php');
 	FacebookSession::setDefaultApplication('972582816088954', '648f2d3ba8d255b6e56ce869625e697f');
 	$session = new FacebookSession($_POST['AccessToken']);
 
