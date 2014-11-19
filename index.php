@@ -40,8 +40,6 @@
 <body>
 	<div id='fb-root'></div>
 
-	<div id='emptyspace'></div>
-
 	<!--상단바 부분 시작-->
 	<div class='navbar navbar-default navbar-fixed-top'>
 		<div class='container'>
