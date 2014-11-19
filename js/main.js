@@ -58,7 +58,8 @@ $(document).ready(function() {
 					activateTrafficMap : false,
 					activateBicycleMap : false,
 					minMaxLevel : [ 9, 14 ],
-					size : new nhn.api.map.Size(x , y)		});
+					size : new nhn.api.map.Size(x , y-200)
+			});
 	var oSlider = new nhn.api.map.ZoomControl();
 	oMap.addControl(oSlider);
 	oSlider.setPosition({
