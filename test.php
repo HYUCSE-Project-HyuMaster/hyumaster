@@ -15,6 +15,13 @@
 <body>
 	<div id='map'></div>
 	<script>
+		var w=window,
+		d=document,
+		e=d.documntElement,
+		g=d.getElementsByTagName('body')[0],
+		x=w.innerWidth || e.clientWidth || g.clintWidth,
+		y=w.innerHeight || e.clientHeight || g.clientHeight;
+	
 		var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
 		var defaultLevel = 12;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
@@ -27,7 +34,7 @@
 						activateTrafficMap : false,
 						activateBicycleMap : false,
 						minMaxLevel : [ 9, 14 ],
-						size : new nhn.api.map.Size(100% , 100%)		});
+						size : new nhn.api.map.Size(x , y)		});
 		var oSlider = new nhn.api.map.ZoomControl();
 		oMap.addControl(oSlider);
 		oSlider.setPosition({
