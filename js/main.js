@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 	//Naver Map API Script Start
 	var x=$(window).width();
-	var y=$(window).height();
+	var y=$(window).height()-51;
 
 	var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
 	var defaultLevel = 11;
@@ -54,7 +54,7 @@ $(document).ready(function() {
 					activateTrafficMap : false,
 					activateBicycleMap : false,
 					minMaxLevel : [ 9, 14 ],
-					size : new nhn.api.map.Size(x , y-51)
+					size : new nhn.api.map.Size(x,y)
 			});
 	var oSlider = new nhn.api.map.ZoomControl();
 	oMap.addControl(oSlider);
