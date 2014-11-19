@@ -10,12 +10,7 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
 	<script src='/js/jquery-2.1.1.min.js'></script>
 	<script src='//openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=311f555d1d9250996c08b0f69e8aee28'></script>
-	<style>
-		html {
-			margin: 0;
-			padding: 0;
-		}
-	</style>
+	<link href='/css/main.css' rel='stylesheet' media='screen'>
 
 </head>
 
