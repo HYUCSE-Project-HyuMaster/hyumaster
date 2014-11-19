@@ -86,10 +86,10 @@
 	</div>
 	<!--상단바 부분 종료-->
 
+	<div id='map'></div>
 
 	<!--중앙 내용 시작-->
 	<div class='container'>
-		<div id='map'></div>
 	</div>
 	<!--중앙 내용 종료-->
 

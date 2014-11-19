@@ -46,9 +46,6 @@ $(document).ready(function() {
 	x=w.innerWidth || e.clientWidth || g.clintWidth,
 	y=w.innerHeight || e.clientHeight || g.clientHeight;
 
-	if(x>1170)
-		x=1170;
-
 	var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
 	var defaultLevel = 11;
 	var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
@@ -61,7 +58,7 @@ $(document).ready(function() {
 					activateTrafficMap : false,
 					activateBicycleMap : false,
 					minMaxLevel : [ 9, 14 ],
-					size : new nhn.api.map.Size(x , y-200)
+					size : new nhn.api.map.Size(x , y-51)
 			});
 	var oSlider = new nhn.api.map.ZoomControl();
 	oMap.addControl(oSlider);
