@@ -16,10 +16,8 @@
 	<div id='map'></div>
 	<script>
 		var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
-		//var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
 		var defaultLevel = 12;
 		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
-		//				point : oHanyangUnivPoint,
 						point : oHanyangUnivPoint,
 						zoom : defaultLevel,
 						enableWheelZoom : true,
@@ -29,7 +27,7 @@
 						activateTrafficMap : false,
 						activateBicycleMap : false,
 						minMaxLevel : [ 9, 14 ],
-						size : new nhn.api.map.Size(320, 520)		});
+						size : new nhn.api.map.Size(100% , 100%)		});
 		var oSlider = new nhn.api.map.ZoomControl();
 		oMap.addControl(oSlider);
 		oSlider.setPosition({
