@@ -43,6 +43,8 @@
 
 	<div class='navbar navbar-default navbar-fixed-top'>
 		<div class='container'>
+
+			<!--제목 부분 시작-->
 			<div class='navbar-header'>
 				<button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
 					<span class='icon-bar'></span>
@@ -51,6 +53,9 @@
 				</button>
 				<a class='navbar-brand' href='#'>HyuMaster</a>
 			</div>
+			<!--제목 부분 종료-->
+
+			<!--네비게이션 바(메뉴) 부분 시작-->
 			<div class='navbar-collapse collapse'>
 				<ul class='nav navbar-nav'>
 					<li class='active'><a href='#'>Home</a></li>
@@ -73,6 +78,41 @@
 					?>
 				</ul>
 			</div>
+			<!--네비게이션 바(메뉴) 부분 종료-->
+
+			<!--로그인 팝업창 소스 시작-->
+				<!-- Button trigger modal -->
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					Launch demo modal
+				</button>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+								<h4 class="modal-title">Modal title</h4>
+							</div>
+
+							<div class="modal-body">
+								...
+							</div>
+							
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+			<!--로그인 팝업창 소스 종료-->
+
+			<!--로그인 관련 팝업창 및 스크립트 시작-->
+			<script>
+
+			</script>
+			<!--로그인 관련 팝업창 및 스크립트 종료-->
+
 		</div>
 	</div>
 
