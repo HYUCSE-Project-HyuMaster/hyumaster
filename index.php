@@ -86,12 +86,9 @@
 
 	<div id='emptyspace'></div>
 
+	<!--지도 삽입 부분 시작-->
 	<div id='map'></div>
-
-	<!--중앙 내용 시작-->
-	<div class='container'>
-	</div>
-	<!--중앙 내용 종료-->
+	<!--지도 삽입 부분 종료-->
 
 </body>
 

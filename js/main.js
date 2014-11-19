@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+	//Facebook Login 코드 시작
 	$('#loginbutton').on({
 		click: function() {
 			FB.login(function(response){
@@ -31,12 +33,17 @@ $(document).ready(function() {
 		 	});
 		}
 	});
+	//Facebook Login 코드 끝
 
+
+	//Logout 코드 시작
 	$('#logoutbutton').on({
 		click: function() {
 			document.location.href='/modules/logout.php';
 		}
 	});
+	//Logout 코드 끝
+
 
 	//Naver Map API Script Start
 	var x=$(window).width();
@@ -90,6 +97,7 @@ $(document).ready(function() {
 		strokeOpacity : 0.5 // - 선의 투명도
 	}); // - polyline 선언, 첫번째 인자는 선이 그려질 점의 위치. 현재는 없음.
 	oMap.addOverlay(oPolyline); // - 지도에 선을 추가함.
+
 	oMap.attach('mouseenter', function(oCustomEvent) {
 		var oTarget = oCustomEvent.target;
 		// 마커위에 마우스 올라간거면
@@ -98,6 +106,7 @@ $(document).ready(function() {
 			oLabel.setVisible(true, oMarker); // - 특정 마커를 지정하여 해당 마커의 title을 보여준다.
 		}
 	});
+
 	oMap.attach('mouseleave', function(oCustomEvent) {
 		var oTarget = oCustomEvent.target;
 		// 마커위에서 마우스 나간거면
@@ -105,6 +114,7 @@ $(document).ready(function() {
 			oLabel.setVisible(false);
 		}
 	});
+
 	oMap.attach('click', function(oCustomEvent) {
 		var oPoint = oCustomEvent.point;
 		var oTarget = oCustomEvent.target;
@@ -137,4 +147,5 @@ $(document).ready(function() {
 		oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
 	});
 	//Naver Map API Script End
+
 });
