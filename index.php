@@ -115,7 +115,7 @@
 
 						$('#logoutbutton').on({
 							click: function() {
-
+								document.location.href='/modules/logout.php';
 							}
 						});
 					});
