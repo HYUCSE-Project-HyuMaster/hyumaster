@@ -1,5 +1,4 @@
 <?php
-	require('./initialize.php');
 	require('./vendor/autoload.php');
 
 	use Facebook\FacebookOtherException;
