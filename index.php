@@ -82,7 +82,14 @@
 					$(document).ready(function() {
 						$('#loginbutton').on({
 							click: function() {
-								alert('test');
+								FB.getLoginStatus(function(response) {
+									if (response.status === 'connected') {
+										alert('login state.');
+									}
+									else {
+										FB.login();
+									}
+								});
 							}
 						});
 
