@@ -126,6 +126,7 @@
 	*/
 	//여기까지가 DB연결 부분입니다.
 
+	$_SESSION['login_state']=true;
 	$response=array('result'=>'success');
 	echo json_encode($response);
 ?>

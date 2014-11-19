@@ -72,9 +72,9 @@
 				<ul class='nav navbar-nav navbar-right'>
 					<?php
 						if(isset($_SESSION['login_state']) && $_SESSION['login_state']==true)
-							echo "<li class='active'><a href='#' id='logoutbutton' data-toggle='modal' data-target='#myModal'>로그아웃</a></li>";
+							echo "<li class='active'><a href='#' id='logoutbutton'>로그아웃</a></li>";
 						else
-							echo "<li class='active'><a href='#' id='loginbutton' data-toggle='modal' data-target='#myModal'>로그인</a></li>";
+							echo "<li class='active'><a href='#' id='loginbutton'>로그인</a></li>";
 					?>
 				</ul>
 
