@@ -128,11 +128,18 @@ $(document).ready(function() {
 			// - InfoWindow 에 들어갈 내용은 setContent 로 자유롭게 넣을 수 있습니다. 외부 css를 이용할 수 있으며, 
 			// - 외부 css에 선언된 class를 이용하면 해당 class의 스타일을 바로 적용할 수 있습니다.
 			// - 단, DIV 의 position style 은 absolute 가 되면 안되며, 
-			// - absolute 의 경우 autoPosition 이 동작하지 않습니다. 
+			// - absolute 의 경우 autoPosition 이 동작하지 않습니다.
+			/*
 			oInfoWnd.setContent('<DIV style="border-top:1px solid; border-bottom:2px groove black; border-left:1px solid; border-right:2px groove black;margin-bottom:1px;color:black;background-color:white; width:auto; height:auto;">'+
 				'<span style="color: #000000 !important;display: inline-block;font-size: 12px !important;font-weight: bold !important;letter-spacing: -1px !important;white-space: nowrap !important; padding: 2px 5px 2px 2px !important">' + 
 				'Hello World <br /> ' + oTarget.getPoint()
 				+'<span></div>');
+			*/
+			oInfownd.setContent("
+				<div class='messagebox'>
+					Test
+				</div>
+			");
 			oInfoWnd.setPoint(oTarget.getPoint());
 			oInfoWnd.setPosition({right : 15, top : 30});
 			oInfoWnd.setVisible(true);
