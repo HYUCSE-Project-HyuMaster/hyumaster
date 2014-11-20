@@ -115,6 +115,7 @@ $(document).ready(function() {
 		}
 	});
 
+	/*
 	oMap.attach('click', function(oCustomEvent) {
 		var oPoint = oCustomEvent.point;
 		var oTarget = oCustomEvent.target;
@@ -146,6 +147,19 @@ $(document).ready(function() {
 		aPoints.push(oPoint); // - 추가하고자 하는 점을 추가하여 배열로 저장함.
 		oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
 	});
+	*/
+
+	//Initial Marker Setup Start
+	var oMarker = new nhn.api.map.Marker(oIcon, { title: '테스트'});
+	var oPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
+	oMarker.setPoint(oPoint);
+	oMap.addOverlay(oMarker);
+
+	var aPoints = oPolyline.getPoints();
+	aPoints.push(oPoint);
+	oPolyline.setPoints(aPoints);
+	//Initial Marker Setup End
+
 	//Naver Map API Script End
 
 });
