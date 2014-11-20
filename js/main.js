@@ -159,7 +159,7 @@ $(document).ready(function() {
 	aPoints.push(oPoint);
 	oPolyline.setPoints(aPoints);
 
-	var oMarker2 = new nhn.api.map.Marker(oIcon, { title: '테스트'});
+	var oMarker2 = new nhn.api.map.Marker(oIcon, { title: '테스트2'});
 	var oPoint2 = new nhn.api.map.LatLng(37.5575795, 127.0441677);
 	oMarker2.setPoint(oPoint2);
 	oMap.addOverlay(oMarker);
