@@ -135,11 +135,7 @@ $(document).ready(function() {
 				'Hello World <br /> ' + oTarget.getPoint()
 				+'<span></div>');
 			*/
-			oInfownd.setContent("
-				<div class='messagebox'>
-					Test
-				</div>
-			");
+			oInfoWnd.setContent('<div class="mesasgebox">TEST</div>');
 			oInfoWnd.setPoint(oTarget.getPoint());
 			oInfoWnd.setPosition({right : 15, top : 30});
 			oInfoWnd.setVisible(true);
