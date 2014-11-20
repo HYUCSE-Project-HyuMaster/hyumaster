@@ -158,6 +158,15 @@ $(document).ready(function() {
 	var aPoints = oPolyline.getPoints();
 	aPoints.push(oPoint);
 	oPolyline.setPoints(aPoints);
+
+	var oMarker2 = new nhn.api.map.Marker(oIcon, { title: '테스트'});
+	var oPoint2 = new nhn.api.map.LatLng(37.5575910, 127.0466885);
+	oMarker2.setPoint(oPoint2);
+	oMap.addOverlay(oMarker);
+
+	var aPoints2 = oPolyline.getPoints();
+	aPoints2.push(oPoint2);
+	oPolyline.setPoints(aPoints2);
 	//Initial Marker Setup End
 
 	//Naver Map API Script End
