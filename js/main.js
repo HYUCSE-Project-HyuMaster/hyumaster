@@ -115,7 +115,6 @@ $(document).ready(function() {
 		}
 	});
 
-	/*
 	oMap.attach('click', function(oCustomEvent) {
 		var oPoint = oCustomEvent.point;
 		var oTarget = oCustomEvent.target;
@@ -140,14 +139,15 @@ $(document).ready(function() {
 			oInfoWnd.autoPosition();
 			return;
 		}
+		/*
 		var oMarker = new nhn.api.map.Marker(oIcon, { title : '마커 : ' + oPoint.toString() });
 		oMarker.setPoint(oPoint);
 		oMap.addOverlay(oMarker);
 		var aPoints = oPolyline.getPoints(); // - 현재 폴리라인을 이루는 점을 가져와서 배열에 저장.
 		aPoints.push(oPoint); // - 추가하고자 하는 점을 추가하여 배열로 저장함.
 		oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
+		*/
 	});
-	*/
 
 	//Initial Marker Setup Start
 	function setMarker(latitude, longitude, name)
@@ -156,12 +156,6 @@ $(document).ready(function() {
 		var oPoint = new nhn.api.map.LatLng(latitude, longitude);
 		oMarker.setPoint(oPoint);
 		oMap.addOverlay(oMarker);
-
-		/*
-		var aPoints = oPolyline.getPoints();
-		aPoints.push(oPoint);
-		oPolyline.setPoints(aPoints);
-		*/
 	}
 	
 	setMarker(37.5586678, 127.0423971, '의대');
