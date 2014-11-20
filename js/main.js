@@ -157,13 +157,16 @@ $(document).ready(function() {
 		oMarker.setPoint(oPoint);
 		oMap.addOverlay(oMarker);
 
+		/*
 		var aPoints = oPolyline.getPoints();
 		aPoints.push(oPoint);
 		oPolyline.setPoints(aPoints);
+		*/
 	}
 
 	setMarker(37.5575795, 127.0441677, '학생회관');
 	setMarker(37.5573419, 127.045649, '중도');
+	setMarker(37.5586678, 127.0423971, '의대');
 	//Initial Marker Setup End
 
 	//Naver Map API Script End
