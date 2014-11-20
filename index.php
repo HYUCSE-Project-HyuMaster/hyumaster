@@ -51,7 +51,7 @@
 					<span class='icon-bar'></span>
 					<span class='icon-bar'></span>
 				</button>
-				<a class='navbar-brand' href='/'><strong>HyuMaster</strong></a>
+				<a class='navbar-brand' href='/'><strong>HYU Master</strong></a>
 			</div>
 			<!--제목 부분 종료-->
 
