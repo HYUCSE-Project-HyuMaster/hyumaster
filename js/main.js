@@ -98,6 +98,7 @@ $(document).ready(function() {
 	}); // - polyline 선언, 첫번째 인자는 선이 그려질 점의 위치. 현재는 없음.
 	oMap.addOverlay(oPolyline); // - 지도에 선을 추가함.
 
+	/*
 	oMap.attach('mouseenter', function(oCustomEvent) {
 		var oTarget = oCustomEvent.target;
 		// 마커위에 마우스 올라간거면
@@ -146,6 +147,7 @@ $(document).ready(function() {
 		aPoints.push(oPoint); // - 추가하고자 하는 점을 추가하여 배열로 저장함.
 		oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
 	});
+	*/
 	//Naver Map API Script End
 
 });
