@@ -150,23 +150,20 @@ $(document).ready(function() {
 	*/
 
 	//Initial Marker Setup Start
-	var oMarker = new nhn.api.map.Marker(oIcon, { title: '테스트'});
-	var oPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
-	oMarker.setPoint(oPoint);
-	oMap.addOverlay(oMarker);
+	function setMarker(latitude, longitude, name)
+	{
+		var oMarker = new nhn.api.map.Marker(oIcon, { title: name});
+		var oPoint = new nhn.api.map.LatLng(latitude, longitude);
+		oMarker.setPoint(oPoint);
+		oMap.addOverlay(oMarker);
 
-	var aPoints = oPolyline.getPoints();
-	aPoints.push(oPoint);
-	oPolyline.setPoints(aPoints);
+		var aPoints = oPolyline.getPoints();
+		aPoints.push(oPoint);
+		oPolyline.setPoints(aPoints);
+	}
 
-	var oMarker2 = new nhn.api.map.Marker(oIcon, { title: '테스트2'});
-	var oPoint2 = new nhn.api.map.LatLng(37.5575795, 127.0441677);
-	oMarker2.setPoint(oPoint2);
-	oMap.addOverlay(oMarker);
-
-	var aPoints2 = oPolyline.getPoints();
-	aPoints2.push(oPoint2);
-	oPolyline.setPoints(aPoints2);
+	setMarker(37.5575795, 127.0441677, '학생회관');
+	setMarker(37.5573419, 127.045649, '중도');
 	//Initial Marker Setup End
 
 	//Naver Map API Script End
