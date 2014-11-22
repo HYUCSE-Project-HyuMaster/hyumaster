@@ -206,7 +206,7 @@ $(document).ready(function() {
 	//Initial Marker Setup End
 
 	var NewMarkerAddMode = false;
-	var NewMarkerPosition = NULL;
+	var NewMarkerPosition = null;
 	$('#AddNewMarker').click(function() {
 		alert('마커 추가를 원하는 지점을 클릭해주세요!');
 		NewMarkerAddMode = true;
