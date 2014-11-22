@@ -25,6 +25,6 @@
 
 	$mysql_link->close();
 
-	$response['result']='success';
+	$response+=array('result'=>'success');
 	echo json_encode($response);
 ?>
