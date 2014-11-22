@@ -19,9 +19,13 @@
 
 	require './db_connect.php';
 
-	$querystr=sprintf("INSERT INTO MarkerAddRequest SET Coordinate='%s', Title='%s', %Content='%s', UserID='%s', UserName='%s';",
-		$mysql_link->real_escape_string($Coordinate), $mysql_link->real_escape_string($Title), $mysql_link->real_escape_string($Content),
-		$UserID, $UserName);
+	$querystr=sprintf("INSERT INTO MarkerAddRequest SET Coordinate='%s', Title='%s', Content='%s', UserID='%s', UserName='%s';",
+		$mysql_link->real_escape_string($Coordinate),
+		$mysql_link->real_escape_string($Title),
+		$mysql_link->real_escape_string($Content),
+		$mysql_link->real_escape_string($UserID),
+		$mysql_link->real_escape_string($UserName)
+	);
 	$result=$mysql_link->query($querystr);
 	if(!$result)
 	{
