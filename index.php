@@ -86,11 +86,17 @@
 	</div>
 	<!--상단바 부분 종료-->
 
+	<!--빈 공간-->
 	<div id='emptyspace'></div>
 
 	<!--지도 삽입 부분 시작-->
 	<div id='map'></div>
 	<!--지도 삽입 부분 종료-->
+
+	<!--광고 삽입 부분-->
+	<div id='emptyspace'>
+
+	</div>
 
 </body>
 
