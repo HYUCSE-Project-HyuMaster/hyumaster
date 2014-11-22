@@ -163,24 +163,26 @@ $(document).ready(function() {
 	//Marker Setup Function Definition End
 	
 	//Initial Marker Setup Start
-	$.ajax({
-		url: '/modules/markerload.php',
-		success: function(response){
-			if(response.result=='success')
-			{
-				$.each(response, function(key){
+	setInterval(function() {
+		$.ajax({
+			url: '/modules/markerload.php',
+			success: function(response){
+				if(response.result=='success')
+				{
+					$.each(response, function(key, obj){
+						if(key==='result')
+							return false;
 
-					if(key==='result')
-						alert('test');
-
-				});
+						setMarker(parseFloat(obj.latitude), parseFloat(obj.longitude), obj.Name);
+					});
+				}
+				else if(response.result==='fail')
+				{
+					alert(response.server_message);
+				}
 			}
-			else if(response.result==='fail')
-			{
-				alert(response.server_message);
-			}
-		}
-	});
+		});	
+	},1000);
 
 	/*
 	setMarker(37.5586678, 127.0423971, '의대');
