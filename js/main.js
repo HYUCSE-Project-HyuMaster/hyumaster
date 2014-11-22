@@ -148,7 +148,7 @@ $(document).ready(function() {
 				keyboard: true
 			});
 
-			alert(oTarget.getPoint());
+			alert(oPoint);
 
 			$('#NewMarkerPosition').val(oPoint.toString());
 			NewMarkerPosition=oPoint.toString();
