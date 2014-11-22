@@ -19,7 +19,7 @@ $(document).ready(function() {
 							success: function(response){
 								if(response.result==='success')
 								{
-									alert('success');
+									alert(response.server_message);
 									document.location.href='/';
 								}
 								else if(response.result==='fail')
@@ -135,7 +135,7 @@ $(document).ready(function() {
 				'Hello World <br /> ' + oTarget.getPoint()
 				+'<span></div>');
 			*/
-			oInfoWnd.setContent('<div style="background-color: white; border: 1px solid black">asdlghdsalgdlsakfladshgldksaglkdsgklsaglkdsjklfajklfjadslkjgklsadjglsdjgljakgjaslkjglsadjgklsadjgaslkjglk</div>');
+			oInfoWnd.setContent('<div style="background-color: white; border: 1px solid black"></div>');
 			oInfoWnd.setPoint(oTarget.getPoint());
 			oInfoWnd.setPosition({right : 15, top : 30});
 			oInfoWnd.setVisible(true);
@@ -152,7 +152,7 @@ $(document).ready(function() {
 		*/
 	});
 
-	//Initial Marker Setup Start
+	//Marker Setup Function Definition Start
 	function setMarker(latitude, longitude, name)
 	{
 		var oMarker = new nhn.api.map.Marker(oIcon, { title: name});
@@ -160,7 +160,14 @@ $(document).ready(function() {
 		oMarker.setPoint(oPoint);
 		oMap.addOverlay(oMarker);
 	}
+	//Marker Setup Function Definition End
 	
+	//Initial Marker Setup Start
+	$.ajax({
+
+	});
+
+	/*
 	setMarker(37.5586678, 127.0423971, '의대');
 	setMarker(37.5584197, 127.0434912, '인문관');
 	setMarker(37.558795, 127.0442962, '자과대');
@@ -189,6 +196,7 @@ $(document).ready(function() {
 	setMarker(37.5576011, 127.0486138, '행원파크');
 	setMarker(37.5581749, 127.0482933, '경영대');
 	setMarker(37.5564702, 127.0439899, '한양플라자');
+	*/
 	//Initial Marker Setup End
 
 	//Naver Map API Script End

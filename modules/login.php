@@ -92,13 +92,13 @@
 		}   
 	}
 	//여기까지가 Facebook인증과정 코드입니다.
+	$_SESSION['login_state']=false;
 
 
 	//DB 연걸 부분입니다.
-	/*
-	require '../modules/database_connect_login1.php';
+	require './db_connect.php';
 
-	$querystr=sprintf("SELECT * FROM UserList WHERE Auth_Type='Facebook' AND UserID='%s';", $mysql_link->real_escape_string($UserID));
+	$querystr=sprintf("SELECT * FROM UserList WHERE UserID='%s';", $mysql_link->real_escape_string($UserID));
 	$result=$mysql_link->query($querystr);
 	if(!$result)
 	{
@@ -113,20 +113,34 @@
 
 	if($result->num_rows == 0)
 	{
-		$response=array('result'=>'fail', 'server_message'=>'등록되지 않은 계정입니다. 계정 인증 후 다시 시도해주세요.');
-		echo json_encode($response);
+		$querystr=sprintf("INSERT INTO UserList SET UserID='%s', UserName='%s', State='1';", $mysql_link->real_escape_string($UserID), $mysql_link->real_escape_string($UserName));
+		$result=$mysql_link->query($querystr);
 
-		session_unset();
-		session_destroy();
+		if(!$result)
+		{
+			$response=array('result'=>'fail', 'server_message'=>'Authentication Error');
+			echo json_encode($response);
 
-		exit;
+			session_unset();
+			session_destroy();
+
+			exit;
+		}
 	}
 
-	require '../modules/database_connect_login2.php';
-	*/
+	$result->data_seek(0);
+	$result_data=$result->fetch_array(MYSQLI_ASSOC);
+
+	$_SESSION['UserID']=$result_data['UserID'];
+	$_SESSION['UserName']=$result_data['UserName'];
+	$_SESSION['UserIP']=$_SERVER['REMOTE_ADDR'];
+	$_SESSION['UserAgent']=$_SERVER['HTTP_USER_AGENT'];
+
+	$mysql->close();
 	//여기까지가 DB연결 부분입니다.
 
 	$_SESSION['login_state']=true;
-	$response=array('result'=>'success');
+	$message=$UserName."님 환영합니다.";
+	$response=array('result'=>'success', 'server_message'=>$message);
 	echo json_encode($response);
 ?>
