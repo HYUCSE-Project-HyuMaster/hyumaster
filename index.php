@@ -93,6 +93,10 @@
 	<div id='map'></div>
 	<!--지도 삽입 부분 종료-->
 
+	<div class='container'>
+		<div class="alert alert-success">Test Message</div>
+	</div>
+
 </body>
 
 </html>
