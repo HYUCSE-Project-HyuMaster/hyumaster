@@ -166,13 +166,9 @@ $(document).ready(function() {
 	$.ajax({
 		url: '/modules/markerload.php',
 		success: function(response){
-			alert('what');
 			if(response.result==='success')
 			{
-				alert("test message");
 				$.each(response, function(key, obj){
-					alert('test');
-
 					if(key==='result')
 						return false;
 
