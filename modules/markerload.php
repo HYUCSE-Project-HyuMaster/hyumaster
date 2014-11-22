@@ -14,7 +14,7 @@
 	$response['result']='success';
 
 	$i=0;
-	for($i=1;$i<=$mysql_link;$i++)
+	for($i=1;$i<=$mysql_link->num_rows;$i++)
 	{
 		$result->data_seek($i-1);
 		$result_data=$result->fetch_array(MYSQLI_ASSOC);
