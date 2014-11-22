@@ -168,11 +168,11 @@ $(document).ready(function() {
 		success: function(response){
 			if(response.result=='success')
 			{
-				$.each(response, function(key, obj){
-					if(key==='result')
-						return false;
+				$.each(response, function(key){
 
-					setMarker(parseFloat(obj.latitude), parseFloat(obj.longitude), obj.Name);
+					if(key==='success')
+						alert('test');
+
 				});
 			}
 			else if(response.result==='fail')
