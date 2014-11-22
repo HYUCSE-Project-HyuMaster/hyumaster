@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 	//Naver Map API Script Start
 	var x=$(window).width();
-	var y=$(window).height()-100;
+	var y=$(window).height()-50;
 
 	var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
 	var defaultLevel = 11;
