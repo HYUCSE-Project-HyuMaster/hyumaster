@@ -92,6 +92,29 @@
 	<div id='map'></div>
 	<!--지도 삽입 부분 종료-->
 
+	<script>
+		$(document).ready(function() {
+			$.ajax({
+				url: '/modules/markerload.php',
+				success: function(response){
+					if(response.result==='success')
+					{
+						$.each(response, function(key, obj){
+							if(key==='result')
+								return false;
+
+							setMarker(obj.latitude, obj.longitude, obj.Name);
+						});
+					}
+					else if(response.result==='fail')
+					{
+						alert(response.server_message);
+					}
+				}
+			});
+		});
+	</script>
+
 </body>
 
 </html>
