@@ -12,3 +12,10 @@ body {
 #emptyspace {
 	height: 50px;
 }
+
+#space {
+	position: absolute;
+	margin-bottom: 0;
+	left: 0;
+	bottom: 0;
+}
