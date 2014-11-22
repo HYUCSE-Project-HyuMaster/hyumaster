@@ -167,7 +167,7 @@ $(document).ready(function() {
 		url: '/modules/markerload.php',
 		success: function(response){
 			alert('what');
-			if(response.result=='success')
+			if(response.result==='success')
 			{
 				alert("test message");
 				$.each(response, function(key, obj){
