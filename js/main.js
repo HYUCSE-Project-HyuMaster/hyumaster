@@ -211,5 +211,9 @@ $(document).ready(function() {
 		NewMarkerAddMode = true;
 	});
 
+	$('#AddNewMakerSubmit').click(function() {
+		$('#AddNewMarker').modal('hide');
+	});
+
 	//Naver Map API Script End
 });
