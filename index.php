@@ -120,7 +120,7 @@
 
 										<div class='form-group'>
 											<label>마커 정보</label>
-											<textarea class='form-control' id='NewMarkerContent' rows='3' placeholder='내용' 입력'>
+											<textarea class='form-control' id='NewMarkerContent' rows='3' placeholder='내용 입력'>
 										</div>
 
 										<button type='submit' class='btn btn-default'>Submit</button>
