@@ -58,18 +58,22 @@
 			<!--네비게이션 바(메뉴) 부분 시작-->
 			<div class='navbar-collapse collapse'>
 				<ul class='nav navbar-nav'>
-					<!--임시 삭제 부분
-					<li class='active'><a href='#'>Home</a></li>
-					-->
-					<li class='dropdown'>
-					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>Menu <b class='caret'></b></a>
-					<ul class='dropdown-menu'>
-						<li><a href='#' id='AddNewMarker'>마커 추가 요청</a></li>
-						<li class='divider'></li>
-						<li class='dropdown-header'>Nav header</li>
-						<li><a href='#'>Separated link</a></li>
-					</ul>
-					</li>
+					<?php
+						if(isset($_SESSION['login_state']) && $_SESSION['login_state']==true)
+						{
+							echo "
+								<li class='dropdown'>
+								<a href='#' class='dropdown-toggle' data-toggle='dropdown'>Menu <b class='caret'></b></a>
+								<ul class='dropdown-menu'>
+									<li><a href='#' id='AddNewMarker'>마커 추가 요청</a></li>
+									<li class='divider'></li>
+									<li class='dropdown-header'>Nav header</li>
+									<li><a href='#'>Separated link</a></li>
+								</ul>
+								</li>
+							";
+						}
+					?>
 				</ul>
 				<ul class='nav navbar-nav navbar-right'>
 					<?php
