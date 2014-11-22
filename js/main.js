@@ -166,6 +166,8 @@ $(document).ready(function() {
 	$.ajax({
 		url: '/modules/markerload.php',
 		success: function(response){
+			alert(respone);
+			alert(response.result);
 			if(response.result==='success')
 			{
 				$.each(response, function(key, obj){

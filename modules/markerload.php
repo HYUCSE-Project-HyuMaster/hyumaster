@@ -10,6 +10,8 @@
 
 		exit;
 	}
+	
+	$response['result']='success';
 
 	$i=0;
 	for($i=1;$i<=$result->num_rows;$i++)
@@ -24,7 +26,5 @@
 	}
 
 	$mysql_link->close();
-
-	$response+=array('result'=>'success');
 	echo json_encode($response);
 ?>
