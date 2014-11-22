@@ -25,6 +25,8 @@
 		$response[$i]['Property']=$result_data['Property'];
 	}
 
+	$response['count']=$result->num_rows;
+
 	$mysql_link->close();
 	echo json_encode($response);
 ?>

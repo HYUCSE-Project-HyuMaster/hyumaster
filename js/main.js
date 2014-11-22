@@ -172,7 +172,7 @@ $(document).ready(function() {
 					if(key==='result')
 						return false;
 
-					setMarker(obj.latitude, obj.longitude, obj.Name);
+					setMarker(parseFloat(obj.latitude), parseFloat(obj.longitude), obj.Name);
 				});
 			}
 			else if(response.result==='fail')
