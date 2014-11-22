@@ -170,7 +170,7 @@ $(document).ready(function() {
 			{
 				$.each(response, function(key){
 
-					if(key==='success')
+					if(key==='result')
 						alert('test');
 
 				});
