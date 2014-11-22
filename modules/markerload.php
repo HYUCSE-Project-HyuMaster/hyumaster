@@ -1,5 +1,4 @@
 <?php
-	require './modules/initialize.php';
 	require './db_connect.php';
 
 	header('Content-Type: application/json');
