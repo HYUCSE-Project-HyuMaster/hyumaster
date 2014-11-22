@@ -8,7 +8,6 @@ $(document).ready(function() {
 					if (response.status === 'connected')
 					{
 						var request_data={
-							'Auth_Type': 'Facebook',
 							'AccessToken': response.authResponse.accessToken
 						};
 
@@ -150,6 +149,7 @@ $(document).ready(function() {
 			});
 
 			$('#NewMarkerPosition').val(oPoint.toString());
+			NewMarkerPosition=oPoint.toString();
 
 			NewMarkerAddMode=false;
 		}
@@ -206,6 +206,7 @@ $(document).ready(function() {
 	//Initial Marker Setup End
 
 	var NewMarkerAddMode = false;
+	var NewMarkerPosition = NULL;
 	$('#AddNewMarker').click(function() {
 		alert('마커 추가를 원하는 지점을 클릭해주세요!');
 		NewMarkerAddMode = true;
@@ -213,6 +214,29 @@ $(document).ready(function() {
 
 	$('#AddNewMarkerSubmit').click(function() {
 		$('#NewMarkerDiv').modal('hide');
+
+		var request_data={
+			'Coordinate': NewMarkerPosition,
+			'Title': $('#NewMarkerTitle').val(),
+			'Content': $('#NewMarkerContent').val()
+		};
+
+		$.ajax({
+			url: '/modules/newmarker.php',
+			data: request_data,
+			type: 'POST',
+			success: function(response){
+				if(response.result==='success')
+				{
+					alert(response.server_message);
+					document.location.href='/';
+				}
+				else if(response.result==='fail')
+				{
+					alert(response.server_message);
+				}
+			}
+		});
 	});
 
 	//Naver Map API Script End
