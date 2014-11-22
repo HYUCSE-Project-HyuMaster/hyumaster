@@ -1,6 +1,8 @@
 <?php
 	require './db_connect.php';
 
+	header('Content-Type: application/json');
+
 	$querystr=sprintf("SELECT * FROM Marker;");
 	$result=$mysql_link->query($querystr);
 	if(!$result)
@@ -10,7 +12,7 @@
 
 		exit;
 	}
-	
+
 	$response['result']='success';
 
 	$i=0;
