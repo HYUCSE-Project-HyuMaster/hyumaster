@@ -153,7 +153,7 @@ $(document).ready(function() {
 	});
 
 	//Marker Setup Function Definition Start
-	function setMarker(latitude, longitude, name)
+	function setMarker(latitude, longitude, name, Property)
 	{
 		var oMarker = new nhn.api.map.Marker(oIcon, { title: name});
 		var oPoint = new nhn.api.map.LatLng(latitude, longitude);
@@ -177,7 +177,7 @@ $(document).ready(function() {
 					var Name = obj.Name;
 					var Property = obj.Property;
 
-					setMarker(latitude, longitude, Name);
+					setMarker(latitude, longitude, Name, Property);
 				});
 			}
 			else if(response.result==='fail')
@@ -185,40 +185,8 @@ $(document).ready(function() {
 				alert(response.server_message);
 			}
 		}
-	});	
-
-	/*
-	setMarker(37.5586678, 127.0423971, '의대');
-	setMarker(37.5584197, 127.0434912, '인문관');
-	setMarker(37.558795, 127.0442962, '자과대');
-	setMarker(37.5580927, 127.0451949, '사범대');
-	setMarker(37.5575795, 127.0441677, '학생회관');
-	setMarker(37.5573469, 127.044613, '사과대');
-	setMarker(37.5573419, 127.045649, '중도');
-	setMarker(37.5560417, 127.043868, '애지문');
-	setMarker(37.5566057, 127.0445473, '신본관');
-	setMarker(37.556063, 127.0447431, '구본관');
-	setMarker(37.5543599, 127.044176, '토목관');
-	setMarker(37.5555586, 127.0453088, '노천');
-	setMarker(37.5556885, 127.0462704, '2공');
-	setMarker(37.556611, 127.0459115, '싸군');
-	setMarker(37.5565579, 127.0456967, '1공');
-	setMarker(37.556655, 127.0468114, '생과대');
-	setMarker(37.5564528, 127.0481373, '법대');
-	setMarker(37.5567861, 127.0487942, '경금대');
-	setMarker(37.5565724, 127.0499707, '올림픽체육관');
-	setMarker(37.5558851, 127.0493578, 'ITBT');
-	setMarker(37.5554683, 127.0476054, '대운동장');
-	setMarker(37.5547195, 127.0474345, 'FTC');
-	setMarker(37.5548497, 127.0461396, '공업센터');
-	setMarker(37.5545576, 127.0451938, '신소재');
-	setMarker(37.5577022, 127.0467541, 'HIT');
-	setMarker(37.5576011, 127.0486138, '행원파크');
-	setMarker(37.5581749, 127.0482933, '경영대');
-	setMarker(37.5564702, 127.0439899, '한양플라자');
-	*/
+	});
 	//Initial Marker Setup End
 
 	//Naver Map API Script End
-
 });
