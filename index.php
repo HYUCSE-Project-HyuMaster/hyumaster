@@ -97,7 +97,7 @@
 	<div id='space'>
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 		<!-- 휴마스터하단광고 -->
-		<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-8652224314979074" data-ad-slot="4989212707"></ins>
+		<ins class="adsbygoogle" style="display:inline-block;width:320px;height:48px" data-ad-client="ca-pub-8652224314979074" data-ad-slot="4989212707"></ins>
 		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 	</div>
 
