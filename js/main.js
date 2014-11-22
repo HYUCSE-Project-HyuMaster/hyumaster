@@ -211,7 +211,8 @@ $(document).ready(function() {
 		NewMarkerAddMode = true;
 	});
 
-	$('#AddNewMakerSubmit').click(function() {
+	$('#AddNewMarkerSubmit').click(function() {
+		alert('test');
 		$('#AddNewMarker').modal('hide');
 	});
 
