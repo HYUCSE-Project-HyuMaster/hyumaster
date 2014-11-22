@@ -150,6 +150,8 @@ $(document).ready(function() {
 			});
 
 			$('#NewMarkerPosition').val(oPoint.toString());
+
+			NewMarkerAddMode=false;
 		}
 
 
