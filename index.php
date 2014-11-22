@@ -99,7 +99,7 @@
 			{
 				echo "
 					<!--마커 생성 요청용 화면-->
-					<div class='modal fade' id='#NewMarkerDiv'>
+					<div class='modal fade' id='#NewMarkerDiv' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 						<div class='modal-dialog'>
 							<div class='modal-content'>
 								<div class='modal-header'>
