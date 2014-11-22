@@ -1,7 +1,7 @@
 <?php
 	require './db_connect.php';
 
-	$querystr=sprintf("SELECT * FROM Marker WHERE UserID='%s';", $mysql_link->real_escape_string($UserID));
+	$querystr=sprintf("SELECT * FROM Marker;");
 	$result=$mysql_link->query($querystr);
 	if(!$result)
 	{
