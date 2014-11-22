@@ -1,5 +1,5 @@
 <?php
-	require('./modules/initialize.php');
+	require('./initialize.php');
 
 	header('Content-Type: application/json');
 
