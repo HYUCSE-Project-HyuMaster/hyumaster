@@ -135,7 +135,6 @@ $(document).ready(function() {
 				'Hello World <br /> ' + oTarget.getPoint()
 				+'<span></div>');
 			*/
-			alert(oTarget.getPoint());
 			oInfoWnd.setContent('<div style="background-color: white; border: 1px solid black"></div>');
 			oInfoWnd.setPoint(oTarget.getPoint());
 			oInfoWnd.setPosition({right : 15, top : 30});
