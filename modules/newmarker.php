@@ -36,7 +36,7 @@
 	}
 
 	$response['result']='success';
-	$response['server_message']='마커 등록 요청이 완료되었습니다.';
+	$response['server_message']='마커 등록 요청이 완료되었습니다. 담당자 확인 후 등록 처리됩니다.';
 
 	$mysql_link->close();
 	echo json_encode($response);

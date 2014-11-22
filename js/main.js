@@ -153,21 +153,7 @@ $(document).ready(function() {
 
 			NewMarkerAddMode=false;
 		}
-
-
-		/*
-		var oMarker = new nhn.api.map.Marker(oIcon, { title : '마커 : ' + oPoint.toString() });
-		oMarker.setPoint(oPoint);
-		oMap.addOverlay(oMarker);
-		var aPoints = oPolyline.getPoints(); // - 현재 폴리라인을 이루는 점을 가져와서 배열에 저장.
-		aPoints.push(oPoint); // - 추가하고자 하는 점을 추가하여 배열로 저장함.
-		oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
-		*/
 	});
-
-	//NewMarker Setup Function Definition Start
-
-	//NewMarker Setup Function Definition End
 
 	//Marker Setup Function Definition Start
 	function setMarker(latitude, longitude, name, Property)
@@ -205,6 +191,7 @@ $(document).ready(function() {
 	});
 	//Initial Marker Setup End
 
+	//NewMarker Add Request Code Start
 	var NewMarkerAddMode = false;
 	var NewMarkerPosition = null;
 	$('#AddNewMarker').click(function() {
@@ -229,7 +216,6 @@ $(document).ready(function() {
 				if(response.result==='success')
 				{
 					alert(response.server_message);
-					document.location.href='/';
 				}
 				else if(response.result==='fail')
 				{
@@ -238,6 +224,7 @@ $(document).ready(function() {
 			}
 		});
 	});
+	//NewMarker Add Request Code End
 
 	//Naver Map API Script End
 });
