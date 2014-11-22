@@ -143,9 +143,12 @@ $(document).ready(function() {
 			return;
 		}
 
-		$('#NewMarkerDiv').modal({
-			keyboard: true
-		});
+		if(NewMarkerAddMode==true)
+		{
+			$('#NewMarkerDiv').modal({
+				keyboard: true
+			});
+		}
 
 
 		/*
@@ -197,6 +200,12 @@ $(document).ready(function() {
 		}
 	});
 	//Initial Marker Setup End
+
+	var NewMarkerAddMode = false;
+	$('#AddNewMarker').click(function() {
+		alert('마커 추가를 원하는 지점을 클릭해주세요!');
+		NewMarkerAddMode = true;
+	});
 
 	//Naver Map API Script End
 });

@@ -64,7 +64,7 @@
 					<li class='dropdown'>
 					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>Menu <b class='caret'></b></a>
 					<ul class='dropdown-menu'>
-						<li><a href='#' data-toggle="modal" data-target="#NewMarkerDiv">Action</a></li>
+						<li><a href='#' id='AddNewMarker'>마커 추가 요청</a></li>
 						<li class='divider'></li>
 						<li class='dropdown-header'>Nav header</li>
 						<li><a href='#'>Separated link</a></li>
