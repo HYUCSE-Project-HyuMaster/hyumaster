@@ -93,19 +93,18 @@
 	<div id='map'></div>
 	<!--지도 삽입 부분 종료-->
 
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 휴마스터하단광고 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:100%;height:50px"
-     data-ad-client="ca-pub-8652224314979074"
-     data-ad-slot="4989212707"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 	<!--광고 삽입 부분-->
-	<div id='emptyspace'>
-
-	</div>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- 휴마스터하단_반응형 -->
+	<ins class="adsbygoogle"
+	     style="display:block"
+	     data-ad-client="ca-pub-8652224314979074"
+	     data-ad-slot="7942679106"
+	     data-ad-format="auto">
+	</ins>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
 
 </body>
 
