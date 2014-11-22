@@ -64,7 +64,7 @@
 					<li class='dropdown'>
 					<a href='#' class='dropdown-toggle' data-toggle='dropdown'>Menu <b class='caret'></b></a>
 					<ul class='dropdown-menu'>
-						<li><a href='#' data-toggle="modal" data-target="#myModal">Action</a></li>
+						<li><a href='#'>Action</a></li>
 						<li class='divider'></li>
 						<li class='dropdown-header'>Nav header</li>
 						<li><a href='#'>Separated link</a></li>
@@ -99,7 +99,7 @@
 			{
 				echo "
 					<!--마커 생성 요청용 화면-->
-					<div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+					<div class='modal fade' id='#NewMarkerDiv'>
 						<div class='modal-dialog'>
 							<div class='modal-content'>
 								<div class='modal-header'>
@@ -122,8 +122,6 @@
 											<label>마커 정보</label>
 											<textarea class='form-control' id='NewMarkerContent' rows='3' placeholder='내용 입력'></textarea>
 										</div>
-
-										<button type='submit' class='btn btn-default'>Submit</button>
 									</form>
 								</div>
 								<div class='modal-footer'>

@@ -142,6 +142,12 @@ $(document).ready(function() {
 			oInfoWnd.autoPosition();
 			return;
 		}
+
+		$('#NewMarkerDiv').modal({
+			keyboard: true
+		});
+
+
 		/*
 		var oMarker = new nhn.api.map.Marker(oIcon, { title : '마커 : ' + oPoint.toString() });
 		oMarker.setPoint(oPoint);
@@ -151,6 +157,10 @@ $(document).ready(function() {
 		oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
 		*/
 	});
+
+	//NewMarker Setup Function Definition Start
+
+	//NewMarker Setup Function Definition End
 
 	//Marker Setup Function Definition Start
 	function setMarker(latitude, longitude, name, Property)
