@@ -216,6 +216,8 @@ $(document).ready(function() {
 				if(response.result==='success')
 				{
 					alert(response.server_message);
+					$('#NewMarkerTitle').val('');
+					$('#NewMarkerContent').val('');
 				}
 				else if(response.result==='fail')
 				{
