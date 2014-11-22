@@ -148,6 +148,8 @@ $(document).ready(function() {
 			$('#NewMarkerDiv').modal({
 				keyboard: true
 			});
+
+			$('#NewMarkerPosition').val(oPoint.toString());
 		}
 
 
