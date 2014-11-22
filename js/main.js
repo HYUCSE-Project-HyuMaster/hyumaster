@@ -56,7 +56,7 @@ $(document).ready(function() {
 					zoom : defaultLevel,
 					enableWheelZoom : true,
 					enableDragPan : true,
-					enableDblClickZoom : true,
+					enableDblClickZoom : false,
 					mapMode : 0,
 					activateTrafficMap : false,
 					activateBicycleMap : false,
