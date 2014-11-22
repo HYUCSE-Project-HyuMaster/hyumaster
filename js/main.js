@@ -168,11 +168,19 @@ $(document).ready(function() {
 		success: function(response){
 			if(response.result=='success')
 			{
+				alert("test message");
 				$.each(response, function(key, obj){
+					alert('test');
+
 					if(key==='result')
 						return false;
 
-					setMarker(parseFloat(obj.latitude), parseFloat(obj.longitude), obj.Name);
+					var latitude = parseFloat(obj.latitude);
+					var longitude = parseFloat(obj.longitude);
+					var Name = obj.Name;
+					var Property = obj.Property;
+
+					setMarker(latitude, longitude, Name);
 				});
 			}
 			else if(response.result==='fail')
