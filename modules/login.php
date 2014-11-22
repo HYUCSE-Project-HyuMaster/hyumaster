@@ -136,7 +136,7 @@
 	$_SESSION['UserIP']=$_SERVER['REMOTE_ADDR'];
 	$_SESSION['UserAgent']=$_SERVER['HTTP_USER_AGENT'];
 
-	$mysql->close();
+	$mysql_link->close();
 	//여기까지가 DB연결 부분입니다.
 
 	$_SESSION['login_state']=true;
