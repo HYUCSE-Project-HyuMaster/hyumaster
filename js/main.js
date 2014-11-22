@@ -148,8 +148,8 @@ $(document).ready(function() {
 				keyboard: true
 			});
 
-			$('#NewMarkerPosition').val(oPoint);
-			NewMarkerPosition=oPoint;
+			$('#NewMarkerPosition').val(oPoint.toString());
+			NewMarkerPosition=oPoint.toString();
 
 			NewMarkerAddMode=false;
 		}
