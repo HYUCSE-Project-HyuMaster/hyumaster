@@ -212,8 +212,7 @@ $(document).ready(function() {
 	});
 
 	$('#AddNewMarkerSubmit').click(function() {
-		alert('test');
-		$('#AddNewMarker').modal('hide');
+		$('#NewMarkerDiv').modal('hide');
 	});
 
 	//Naver Map API Script End
