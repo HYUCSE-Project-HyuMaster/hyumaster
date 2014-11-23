@@ -115,6 +115,15 @@
 										</div>
 
 										<div class='form-group'>
+											<label>마커 유형</label></br>
+											<div class='btn-group'>
+											  <button type='button' id='NewMarkerTalk' class='btn btn-default'>잡담</button>
+											  <button type='button' id='NewMarkerInform' class='btn btn-default'>정보 제공</button>
+											  <button type='button' id='NewMarkerLost' class='btn btn-default'>긴급 제보</button>
+											</div>
+										</div>
+
+										<div class='form-group'>
 											<label>마커 정보</label>
 											<textarea class='form-control' id='NewMarkerContent' rows='3' placeholder='내용 입력'></textarea>
 										</div>
@@ -122,7 +131,7 @@
 								</div>
 								<div class='modal-footer'>
 									<button type='button' class='btn btn-default' data-dismiss='modal'>닫기</button>
-									<button type='button' class='btn btn-primary' id='AddNewMarkerSubmit'>마커 생성</button>
+									<button type='button' class='btn btn-success' id='AddNewMarkerSubmit'>마커 생성</button>
 								</div>
 							</div><!-- /.modal-content -->
 						</div><!-- /.modal-dialog -->

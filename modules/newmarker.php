@@ -14,6 +14,7 @@
 	$Coordinate=$_POST['Coordinate'];
 	$Title=$_POST['Title'];
 	$Content=$_POST['Content'];
+	$Property=$_POST['Property'];
 	$UserID=$_SESSION['UserID'];
 	$UserName=$_SESSION['UserName'];
 
@@ -37,10 +38,11 @@
 
 	require './db_connect.php';
 
-	$querystr=sprintf("INSERT INTO Marker SET latitude='%s', longitude='%s', Name='%s', Property='useradd', Content='%s', UserID='%s', UserName='%s';",
+	$querystr=sprintf("INSERT INTO Marker SET latitude='%s', longitude='%s', Name='%s', Property='%s', Content='%s', UserID='%s', UserName='%s';",
 		$mysql_link->real_escape_string($latitude),
 		$mysql_link->real_escape_string($longitude),
 		$mysql_link->real_escape_string($Title),
+		$mysql_link->real_escape_string($Property),
 		$mysql_link->real_escape_string($Content),
 		$mysql_link->real_escape_string($UserID),
 		$mysql_link->real_escape_string($UserName)

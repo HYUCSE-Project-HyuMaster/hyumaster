@@ -49,7 +49,7 @@ $(document).ready(function() {
 	var y=$(window).height()-50;
 
 	var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
-	var defaultLevel = 11;
+	var defaultLevel = 12;
 	var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
 					point : oHanyangUnivPoint,
 					zoom : defaultLevel,
@@ -59,7 +59,7 @@ $(document).ready(function() {
 					mapMode : 0,
 					activateTrafficMap : false,
 					activateBicycleMap : false,
-					minMaxLevel : [ 9, 14 ],
+					minMaxLevel : [ 11, 14 ],
 					size : new nhn.api.map.Size(x,y)
 			});
 	var oSlider = new nhn.api.map.ZoomControl();
@@ -155,9 +155,17 @@ $(document).ready(function() {
 					if(response.result==='success')
 					{
 						$('#MarkerName').text(response.Name);
-						if(response.Property=='useradd')
+						if(response.Property=='talk')
 						{
-							$('#MarkerType').text('사용자 등록');
+							$('#MarkerType').text('그냥 잡담');
+						}
+						else if(response.Property=='info')
+						{
+							$('#MarkerType').text('정보 제공');
+						}
+						else if(response.Property=='lost')
+						{
+							$('#MarkerType').text('분실물 정보');
 						}
 						else if(response.Property=='initial')
 						{
@@ -206,7 +214,9 @@ $(document).ready(function() {
 
 
 	//Custom Marker Setup start
-	var infoIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/Unknown_Target_Final.png', oSize, oOffset);
+	var infoIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/JungBoJaeGong.png', new nhn.api.map.Size(25, 25), oOffset);
+	var talkIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/DaeHwa.png', new nhn.api.map.Size(25, 25), oOffset);
+	var warnIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/warning.png', new nhn.api.map.Size(30, 30), oOffset);
 	//Custom Marker Setup end
 	
 	//Initial Marker Setup Start
@@ -224,13 +234,25 @@ $(document).ready(function() {
 					var Name = obj.Name;
 					var Property = obj.Property;
 
-					if(Property=='initial')
+					if(Property == 'info')
+					{
+						setMarker(latitude, longitude, Name, Property, infoIcon);
+					}
+					else if(Property == 'talk')
+					{
+						setMarker(latitude, longitude, Name, Property, talkIcon);
+					}
+					else if(Property == 'warning')
+					{
+						setMarker(latitude, longitude, Name, Property, warnIcon);
+					}
+					else if(Property == 'initial')
 					{
 						setMarker(latitude, longitude, Name, Property, oIcon);
 					}
-					else if(Property=='useradd')
+					else
 					{
-						setMarker(latitude, longitude, Name, Property, infoIcon);
+						setMarker(latitude, longitude, Name, Property, oIcon);
 					}
 				});
 			}
@@ -245,10 +267,37 @@ $(document).ready(function() {
 	//NewMarker Add Request Code Start
 	var NewMarkerAddMode = false;
 	var NewMarkerPosition = null;
+	var NewMarkerProperty = null;
+
 	$('#AddNewMarker').click(function() {
 		alert('마커 추가를 원하는 지점을 클릭해주세요!');
 		NewMarkerAddMode = true;
-		$('#AddNewMarker').html('<strong>새로운 마커 만들기</strong>');
+		NewMarkerProperty = 'talk';
+		$('#NewMarkerTalk').attr('class','btn btn-primary');
+		$('#NewMarkerInform').attr('class','btn btn-default');
+		$('#NewMarkerLost').attr('class','btn btn-default');
+		$('#NewMarker').html('<strong>새로운 마커 만들기</strong>');
+	});
+
+	$('#NewMarkerTalk').click(function() {
+		NewMarkerProperty = 'talk';
+		$(this).attr('class','btn btn-primary');
+		$('#NewMarkerInform').attr('class','btn btn-default');
+		$('#NewMarkerLost').attr('class','btn btn-default');
+	});
+
+	$('#NewMarkerInform').click(function() {
+		NewMarkerProperty = 'inform';
+		$('#NewMarkerTalk').attr('class','btn btn-default');
+		$(this).attr('class','btn btn-info');
+		$('#NewMarkerLost').attr('class','btn btn-default');
+	});
+
+	$('#NewMarkerLost').click(function() {
+		NewMarkerProperty = 'warning';
+		$('#NewMarkerTalk').attr('class','btn btn-default');
+		$('#NewMarkerInform').attr('class','btn btn-default');
+		$(this).attr('class','btn btn-danger');
 	});
 
 	$('#AddNewMarkerSubmit').click(function() {
@@ -257,7 +306,8 @@ $(document).ready(function() {
 		var request_data={
 			'Coordinate': NewMarkerPosition,
 			'Title': $('#NewMarkerTitle').val(),
-			'Content': $('#NewMarkerContent').val()
+			'Content': $('#NewMarkerContent').val(),
+			'Property': NewMarkerProperty
 		};
 
 		$.ajax({
