@@ -134,11 +134,49 @@ $(document).ready(function() {
 				'Hello World <br /> ' + oTarget.getPoint()
 				+'<span></div>');
 			*/
+
+			/*
 			oInfoWnd.setContent('<div style="background-color: white; border: 1px solid black"></div>');
 			oInfoWnd.setPoint(oTarget.getPoint());
 			oInfoWnd.setPosition({right : 15, top : 30});
 			oInfoWnd.setVisible(true);
 			oInfoWnd.autoPosition();
+			*/
+
+			var request_data={
+				'PostData': oTarget.getTitle()
+			};
+
+			$.ajax({
+				url: '/modules/markerinfo.php',
+				data: request_data,
+				type: 'POST',
+				success: function(response){
+					if(response.result==='success')
+					{
+						$('#MarkerName').text(response.Name);
+						if(response.Property=='useradd')
+						{
+							$('#MarkerType').text('사용자 등록');
+						}
+						else if(response.Property=='initial')
+						{
+							$('#MarkerType').text('기본 등록');
+						}
+						
+						$('#MarkerContent').html(response.Content);
+
+						$('#CurrentMarkerInfo').modal({
+							keyboard: true
+						});
+					}
+					else if(response.result==='fail')
+					{
+						alert(response.server_message);
+					}
+				}
+			});
+
 			return;
 		}
 
@@ -152,18 +190,24 @@ $(document).ready(function() {
 			NewMarkerPosition=oPoint.toString();
 
 			NewMarkerAddMode=false;
+			$('#AddNewMarker').html('새로운 마커 만들기');
 		}
 	});
 
 	//Marker Setup Function Definition Start
-	function setMarker(latitude, longitude, name, Property)
+	function setMarker(latitude, longitude, name, Property, Icon)
 	{
-		var oMarker = new nhn.api.map.Marker(oIcon, { title: name});
+		var oMarker = new nhn.api.map.Marker(Icon, { title: name});
 		var oPoint = new nhn.api.map.LatLng(latitude, longitude);
 		oMarker.setPoint(oPoint);
 		oMap.addOverlay(oMarker);
 	}
 	//Marker Setup Function Definition End
+
+
+	//Custom Marker Setup start
+	var infoIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/Unknown_Target_Final.png', oSize, oOffset);
+	//Custom Marker Setup end
 	
 	//Initial Marker Setup Start
 	$.ajax({
@@ -180,7 +224,14 @@ $(document).ready(function() {
 					var Name = obj.Name;
 					var Property = obj.Property;
 
-					setMarker(latitude, longitude, Name, Property);
+					if(Property=='initial')
+					{
+						setMarker(latitude, longitude, Name, Property, oIcon);
+					}
+					else if(Property=='useradd')
+					{
+						setMarker(latitude, longitude, Name, Property, infoIcon);
+					}
 				});
 			}
 			else if(response.result==='fail')
@@ -197,6 +248,7 @@ $(document).ready(function() {
 	$('#AddNewMarker').click(function() {
 		alert('마커 추가를 원하는 지점을 클릭해주세요!');
 		NewMarkerAddMode = true;
+		$('#AddNewMarker').html('<strong>새로운 마커 만들기</strong>');
 	});
 
 	$('#AddNewMarkerSubmit').click(function() {
@@ -218,6 +270,7 @@ $(document).ready(function() {
 					alert(response.server_message);
 					$('#NewMarkerTitle').val('');
 					$('#NewMarkerContent').val('');
+					document.location.href='/';
 				}
 				else if(response.result==='fail')
 				{

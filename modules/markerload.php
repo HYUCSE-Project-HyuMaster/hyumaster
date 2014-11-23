@@ -21,7 +21,7 @@
 		$result->data_seek($i-1);
 		$result_data=$result->fetch_array(MYSQLI_ASSOC);
 
-		$response[$i]['Name']=$result_data['Name'];
+		$response[$i]['Name']=$result_data['Name']."/".$result_data['UID'];
 		$response[$i]['latitude']=$result_data['latitude'];
 		$response[$i]['longitude']=$result_data['longitude'];
 		$response[$i]['Property']=$result_data['Property'];

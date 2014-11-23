@@ -17,15 +17,35 @@
 	$UserID=$_SESSION['UserID'];
 	$UserName=$_SESSION['UserName'];
 
+	$Content=str_replace('<script>', '', $Content);
+	$Content=str_replace('</script>', '', $Content);
+	$Content=str_replace('<script', '', $Content);
+	$Content=str_replace('/script>', '', $Content);
+
+	if($Title=='' || $Content=='')
+	{
+		$response=array('result'=>'fail', 'server_message'=>'마커 이름 또는 마커 내용이 비어있습니다.');
+		echo json_encode($response);
+
+		exit;
+	}
+
+	$longitude=null;
+	$latitude=null;
+
+	list($longitude,$latitude)=split(",", $Coordinate);
+
 	require './db_connect.php';
 
-	$querystr=sprintf("INSERT INTO MarkerAddRequest SET Coordinate='%s', Title='%s', Content='%s', UserID='%s', UserName='%s';",
-		$mysql_link->real_escape_string($Coordinate),
+	$querystr=sprintf("INSERT INTO Marker SET latitude='%s', longitude='%s', Name='%s', Property='useradd', Content='%s', UserID='%s', UserName='%s';",
+		$mysql_link->real_escape_string($latitude),
+		$mysql_link->real_escape_string($longitude),
 		$mysql_link->real_escape_string($Title),
 		$mysql_link->real_escape_string($Content),
 		$mysql_link->real_escape_string($UserID),
 		$mysql_link->real_escape_string($UserName)
 	);
+
 	$result=$mysql_link->query($querystr);
 	if(!$result)
 	{
@@ -36,7 +56,7 @@
 	}
 
 	$response['result']='success';
-	$response['server_message']='마커 등록 요청이 완료되었습니다. 담당자 확인 후 등록 처리됩니다.';
+	$response['server_message']='마커가 등록되었습니다.';
 
 	$mysql_link->close();
 	echo json_encode($response);

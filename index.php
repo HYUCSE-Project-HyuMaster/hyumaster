@@ -62,7 +62,7 @@
 						if(isset($_SESSION['login_state']) && $_SESSION['login_state']==true)
 						{
 							echo "
-									<li><a href='#' id='AddNewMarker'>마커 추가 요청</a></li>
+									<li><a href='#' id='AddNewMarker'>새로운 마커 만들기</a></li>
 							";
 						}
 					?>
@@ -100,7 +100,7 @@
 							<div class='modal-content'>
 								<div class='modal-header'>
 									<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-									<h4 class='modal-title'>Marker 추가 요청</h4>
+									<h4 class='modal-title'>새로운 마커 만들기</h4>
 								</div>
 								<div class='modal-body'>
 									<form role='form'>
@@ -121,8 +121,8 @@
 									</form>
 								</div>
 								<div class='modal-footer'>
-									<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
-									<button type='button' class='btn btn-primary' id='AddNewMarkerSubmit'>Submit</button>
+									<button type='button' class='btn btn-default' data-dismiss='modal'>닫기</button>
+									<button type='button' class='btn btn-primary' id='AddNewMarkerSubmit'>마커 생성</button>
 								</div>
 							</div><!-- /.modal-content -->
 						</div><!-- /.modal-dialog -->
@@ -130,6 +130,41 @@
 				";
 			}
 		?>
+
+		<div class='modal fade' id='CurrentMarkerInfo' role='dialog' aria-hidden='true'>
+			<div class='modal-dialog'>
+				<div class='modal-content'>
+
+					<div class='modal-header'>
+						<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+						<h4 class='modal-title'><strong>마커 정보</strong></h4>
+					</div>
+
+					<div class='modal-body'>
+						<form role='form'>
+							<div class='form-group'>
+								<label><strong><font color='#0100FF'>마커 이름</font></strong></label>
+								<div id='MarkerName'></div>
+							</div>
+
+							<div class='form-group'>
+								<label><strong><font color='#ED4C00'>마커 유형</font></strong></label>
+								<div id='MarkerType'></div>
+							</div>
+
+							<div class='form-group'>
+								<label><strong><font color='#47C83E'>마커 정보</font></strong></label>
+								<div id='MarkerContent'></div>
+							</div>
+						</form>
+					</div>
+
+					<div class='modal-footer'>
+						<button type='button' class='btn btn-default' data-dismiss='modal'>닫기</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 	</div>
 
 </body>
