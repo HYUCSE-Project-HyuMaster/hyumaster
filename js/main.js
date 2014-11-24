@@ -215,11 +215,11 @@ $(document).ready(function() {
         			group1.setVisible(false);
         			group2.setVisible(false);
         	 }
-        	 if(oMap.getLevel()==11){
+        	 if(oMap.getLevel()==12){
         			group1.setVisible(false);
         			group2.setVisible(false);
         	 }
-        	 if(oMap.getLevel()==11){
+        	 if(oMap.getLevel()==13){
         			group1.setVisible(false);
         			group2.setVisible(true);
         	 }
