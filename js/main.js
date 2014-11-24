@@ -192,15 +192,42 @@ $(document).ready(function() {
 	});
 
 	//Marker Setup Function Definition Start
+	var group1=new nhn.api.map.GroupOverlay();
+	oMap.addOverlay(group1);
+	var group2=new nhn.api.map.GroupOverlay();
+	oMap.addOverlay(group2);
 	function setMarker(latitude, longitude, name, Property, Icon)
 	{
 		var oMarker = new nhn.api.map.Marker(Icon, { title: name});
 		var oPoint = new nhn.api.map.LatLng(latitude, longitude);
 		oMarker.setPoint(oPoint);
-		oMap.addOverlay(oMarker);
+		if(Property=='inform'||Property=='warning'||Property=='talk') group1.addOverlay(oMarker);
+		else group2.addOverlay(oMarker);
+		//oMap.addOverlay(oMarker);
 	}
+	group1.setVisible(false);
+        group2.setVisible(false);
 	//Marker Setup Function Definition End
-
+	
+	//Marker Visibility
+	oMap.attach('zoom', function (oCustomEvent) {
+        	 if(oMap.getLevel()==11){
+        			group1.setVisible(false);
+        			group2.setVisible(false);
+        	 }
+        	 if(oMap.getLevel()==11){
+        			group1.setVisible(false);
+        			group2.setVisible(false);
+        	 }
+        	 if(oMap.getLevel()==11){
+        			group1.setVisible(false);
+        			group2.setVisible(true);
+        	 }
+        	 if(oMap.getLevel()==14){
+        			group1.setVisible(true);
+        			group2.setVisible(false);
+        	 }
+     	    });
 
 	//Custom Marker Setup start
 	var infoIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/JungBoJaeGong.png', new nhn.api.map.Size(32, 37), oOffset);
