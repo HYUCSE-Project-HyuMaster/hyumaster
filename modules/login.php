@@ -141,6 +141,17 @@
 	$result->data_seek(0);
 	$result_data=$result->fetch_array(MYSQLI_ASSOC);
 
+	if($result_data['State']==0)
+	{
+		$response=array('result'=>'fail', 'server_message'=>'로그인이 거부되었습니다. 운영자에게 문의하세요.');
+		echo json_encode($response);
+
+		session_unset();
+		session_destroy();
+
+		exit;
+	}
+
 	$_SESSION['UserID']=$result_data['UserID'];
 	$_SESSION['UserName']=$result_data['UserName'];
 	$_SESSION['UserIP']=$_SERVER['REMOTE_ADDR'];
@@ -150,7 +161,9 @@
 	//여기까지가 DB연결 부분입니다.
 
 	$_SESSION['login_state']=true;
-	$message=$UserName."님 환영합니다.";
+	$message=$UserName."님 환영합니다.\n\n";
+	$message.="[이벤트 안내]\n";
+	$message.="수요일까지 쓸모있는 정보를 제일 많이 올린 3분에게 문화상품권 1마원권, 그 다음 4분에게 문화상품권 5천원권 증정!";
 	$response=array('result'=>'success', 'server_message'=>$message);
 	echo json_encode($response);
 ?>

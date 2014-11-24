@@ -162,6 +162,7 @@ $(document).ready(function() {
 						}
 						
 						$('#MarkerContent').html(response.Content);
+						$('#MarkerTime').html(response.Time);
 
 						$('#CurrentMarkerInfo').modal({
 							keyboard: true
@@ -205,42 +206,44 @@ $(document).ready(function() {
 		else group2.addOverlay(oMarker);
 		//oMap.addOverlay(oMarker);
 	}
-	group1.setVisible(false);
+	group1.setVisible(true);
     group2.setVisible(true);
 	//Marker Setup Function Definition End
 
-	var checkstate=true;
-	
 	//Marker Visibility
+	var zoomcheck=false;
 	oMap.attach('zoom', function (oCustomEvent) {
         	 if(oMap.getLevel()==11)
         	 {
         			group1.setVisible(false);
-        			group2.setVisible(false);
+        			group2.setVisible(true);
         			
-        			if(checkstate==true)
+        			if(zoomcheck==false)
         			{
-        				alert('이 레벨에서는 정보가 보이지 않습니다. 지도를 확대해 주세요.\n확대할수록 더 많은 정보를 볼 수 있습니다.');
-        				checkstate=false;
+        				alert('지도 축소 한계치입니다.\n\n[이벤트 안내]\n수요일까지 쓸모있는 정보를 제일 많이 올린 3분에게 문화상품권 1마원권, 그 다음 4분에게 문화상품권 5천원권 증정!');
+        				zoomcheck=true;
         			}
         	 }
         	 if(oMap.getLevel()==12)
         	 {
-        			group1.setVisible(false);
+        			group1.setVisible(true);
         			group2.setVisible(true);
-        			checkstate=true;
+
+        			zoomcheck=false;
         	 }
         	 if(oMap.getLevel()==13)
         	 {
         			group1.setVisible(true);
         			group2.setVisible(true);
-        			checkstate=true;
+
+        			zoomcheck=false;
         	 }
         	 if(oMap.getLevel()==14)
         	 {
         			group1.setVisible(true);
         			group2.setVisible(true);
-        			checkstate=true;
+
+        			zoomcheck=false;
         	 }
     });
 

@@ -27,6 +27,15 @@
 	$response['Content']=$result_data['Content'];
 	$response['Property']=$result_data['Property'];
 
+	if($response['Property']=='initial')
+	{
+		$response['Time']='-';
+	}
+	else
+	{
+		$response['Time']=$result_data['RequestTime'];
+	}
+	
 	$mysql_link->close();
 	echo json_encode($response);
 ?>

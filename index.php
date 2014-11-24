@@ -5,7 +5,7 @@
 <head>
 	<title>HyuMaster</title>
 	<meta charset='utf-8'>
-	<meta name='description' content='HyuMaster'>
+	<meta name='description' content='한양대 테크노경영학 프로젝트 HyuMaster'>
 	<meta name='author' content='한기훈'>
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
 	<script src='/js/jquery-2.1.1.min.js'></script>
@@ -13,6 +13,7 @@
 	<link href='/css/bootstrap.min.css' rel='stylesheet' media='screen'>
 	<link href='/css/bootstrap-theme.min.css' rel='stylesheet' media='screen'>
 	<link href='/css/main.css' rel='stylesheet' media='screen'>
+	<link rel="shortcut icon" href="/images/favicon.ico">
 	<script>
 		window.fbAsyncInit = function() {
 			FB.init({
@@ -51,7 +52,7 @@
 					<span class='icon-bar'></span>
 					<span class='icon-bar'></span>
 				</button>
-				<a class='navbar-brand' href='/'><strong>HYU Master</strong>&nbsp;&nbsp;<div class="fb-like" data-href="http://hyumaster.inoutsw.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></a>
+				<a class='navbar-brand' href='/'><strong>HYU Master</strong>&nbsp;&nbsp;<div class="fb-like" data-href="http://hyumaster.inoutsw.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></a>
 			</div>
 			<!--제목 부분 종료-->
 
@@ -110,8 +111,8 @@
 										</div>
 
 										<div class='form-group'>
-											<label>이름 입력</label>
-											<input type='text' class='form-control' id='NewMarkerTitle' placeholder='이름 입력'>
+											<label>제목 입력</label>
+											<input type='text' class='form-control' id='NewMarkerTitle' placeholder='제목 입력'>
 										</div>
 
 										<div class='form-group'>
@@ -125,7 +126,7 @@
 
 										<div class='form-group'>
 											<label>내용 입력</label>
-											<textarea class='form-control' id='NewMarkerContent' rows='4' placeholder='[잡담]은 1일간, [정보 제공]은 7일간 유지됩니다.'></textarea>
+											<textarea class='form-control' id='NewMarkerContent' rows='4' placeholder='[잡담]은 1일, [정보 제공]은 5일, [긴급 제보/분실물]은 7일 동안 유지됩니다.'></textarea>
 										</div>
 									</form>
 								</div>
@@ -152,8 +153,15 @@
 					<div class='modal-body'>
 						<form role='form'>
 							<div class='form-group'>
-								<label><strong><font color='#0100FF'>이름</font></strong></label>
+								<label><strong><font color='#000000'>제목</font></strong></label>
 								<div id='MarkerName'></div>
+							</div>
+
+							<hr>
+
+							<div class='form-group'>
+								<label><strong><font color='#0100FF'>등록시간</font></strong></label>
+								<div id='MarkerTime'></div>
 							</div>
 
 							<hr>

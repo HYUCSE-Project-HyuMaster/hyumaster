@@ -12,13 +12,11 @@
 	}
 
 	$Coordinate=$_POST['Coordinate'];
-	$Title=$_POST['Title'];
-	$Content=$_POST['Content'];
+	$Title=str_replace("/", "", $_POST['Title']);
+	$Content=strip_tags($_POST['Content']);
 	$Property=$_POST['Property'];
 	$UserID=$_SESSION['UserID'];
 	$UserName=$_SESSION['UserName'];
-
-	$Content=strip_tags($Content);
 
 	if($Title=='' || $Content=='')
 	{
