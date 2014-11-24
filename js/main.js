@@ -217,15 +217,15 @@ $(document).ready(function() {
         	 }
         	 if(oMap.getLevel()==12){
         			group1.setVisible(false);
-        			group2.setVisible(false);
+        			group2.setVisible(true);
         	 }
         	 if(oMap.getLevel()==13){
-        			group1.setVisible(false);
-        			group2.setVisible(true);
+        			group1.setVisible(true);
+        			group2.setVisible(false);
         	 }
         	 if(oMap.getLevel()==14){
         			group1.setVisible(true);
-        			group2.setVisible(false);
+        			group2.setVisible(true);
         	 }
      	    });
 
