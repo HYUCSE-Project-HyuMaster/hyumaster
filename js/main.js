@@ -69,9 +69,9 @@ $(document).ready(function() {
 		left : 10
 	});
 	
-	var oSize = new nhn.api.map.Size(28, 37);
+	var oSize = new nhn.api.map.Size(19, 32);
 	var oOffset = new nhn.api.map.Size(14, 37);
-	var oIcon = new nhn.api.map.Icon('//static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
+	var oIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/initial.png', oSize, oOffset);
 	
 	var oInfoWnd = new nhn.api.map.InfoWindow();
 	oInfoWnd.setVisible(false);
@@ -124,24 +124,6 @@ $(document).ready(function() {
 			if (oCustomEvent.clickCoveredMarker) {
 				return;
 			}
-			// - InfoWindow 에 들어갈 내용은 setContent 로 자유롭게 넣을 수 있습니다. 외부 css를 이용할 수 있으며, 
-			// - 외부 css에 선언된 class를 이용하면 해당 class의 스타일을 바로 적용할 수 있습니다.
-			// - 단, DIV 의 position style 은 absolute 가 되면 안되며, 
-			// - absolute 의 경우 autoPosition 이 동작하지 않습니다.
-			/*
-			oInfoWnd.setContent('<DIV style="border-top:1px solid; border-bottom:2px groove black; border-left:1px solid; border-right:2px groove black;margin-bottom:1px;color:black;background-color:white; width:auto; height:auto;">'+
-				'<span style="color: #000000 !important;display: inline-block;font-size: 12px !important;font-weight: bold !important;letter-spacing: -1px !important;white-space: nowrap !important; padding: 2px 5px 2px 2px !important">' + 
-				'Hello World <br /> ' + oTarget.getPoint()
-				+'<span></div>');
-			*/
-
-			/*
-			oInfoWnd.setContent('<div style="background-color: white; border: 1px solid black"></div>');
-			oInfoWnd.setPoint(oTarget.getPoint());
-			oInfoWnd.setPosition({right : 15, top : 30});
-			oInfoWnd.setVisible(true);
-			oInfoWnd.autoPosition();
-			*/
 
 			var request_data={
 				'PostData': oTarget.getTitle()
@@ -155,21 +137,28 @@ $(document).ready(function() {
 					if(response.result==='success')
 					{
 						$('#MarkerName').text(response.Name);
-						if(response.Property=='talk')
+						
+						switch(response.Property)
 						{
-							$('#MarkerType').text('그냥 잡담');
-						}
-						else if(response.Property=='info')
-						{
-							$('#MarkerType').text('정보 제공');
-						}
-						else if(response.Property=='lost')
-						{
-							$('#MarkerType').text('분실물 정보');
-						}
-						else if(response.Property=='initial')
-						{
-							$('#MarkerType').text('기본 등록');
+							case 'talk':
+								$('#MarkerType').text('그냥 잡담');
+								break;
+
+							case 'inform':
+								$('#MarkerType').text('정보 제공');
+								break;
+
+							case 'warning':
+								$('#MarkerType').text('긴급 정보 / 분실물');
+								break;
+
+							case 'initial':
+								$('#MarkerType').text('기본 등록');
+								break;
+
+							default:
+								$('#MarkerType').text('Unknown Marker');
+								break;
 						}
 						
 						$('#MarkerContent').html(response.Content);
@@ -214,9 +203,9 @@ $(document).ready(function() {
 
 
 	//Custom Marker Setup start
-	var infoIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/JungBoJaeGong.png', new nhn.api.map.Size(25, 25), oOffset);
-	var talkIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/DaeHwa.png', new nhn.api.map.Size(25, 25), oOffset);
-	var warnIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/warning.png', new nhn.api.map.Size(30, 30), oOffset);
+	var infoIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/JungBoJaeGong.png', new nhn.api.map.Size(32, 37), oOffset);
+	var talkIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/DaeHwa.png', new nhn.api.map.Size(32, 37), oOffset);
+	var warnIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/warning.png', new nhn.api.map.Size(32, 37), oOffset);
 	//Custom Marker Setup end
 	
 	//Initial Marker Setup Start
@@ -234,25 +223,27 @@ $(document).ready(function() {
 					var Name = obj.Name;
 					var Property = obj.Property;
 
-					if(Property == 'info')
+					switch(Property)
 					{
-						setMarker(latitude, longitude, Name, Property, infoIcon);
-					}
-					else if(Property == 'talk')
-					{
-						setMarker(latitude, longitude, Name, Property, talkIcon);
-					}
-					else if(Property == 'warning')
-					{
-						setMarker(latitude, longitude, Name, Property, warnIcon);
-					}
-					else if(Property == 'initial')
-					{
-						setMarker(latitude, longitude, Name, Property, oIcon);
-					}
-					else
-					{
-						setMarker(latitude, longitude, Name, Property, oIcon);
+						case 'inform':
+							setMarker(latitude, longitude, Name, Property, infoIcon);
+							break;
+
+						case 'talk':
+							setMarker(latitude, longitude, Name, Property, talkIcon);
+							break;
+
+						case 'warning':
+							setMarker(latitude, longitude, Name, Property, warnIcon);
+							break;
+
+						case 'initial':
+							setMarker(latitude, longitude, Name, Property, oIcon);
+							break;
+
+						default:
+							setMarker(latitude, longitude, Name, Property, oIcon);
+							break;
 					}
 				});
 			}
@@ -276,7 +267,7 @@ $(document).ready(function() {
 		$('#NewMarkerTalk').attr('class','btn btn-primary');
 		$('#NewMarkerInform').attr('class','btn btn-default');
 		$('#NewMarkerLost').attr('class','btn btn-default');
-		$('#NewMarker').html('<strong>새로운 마커 만들기</strong>');
+		$('#AddNewMarker').html('');
 	});
 
 	$('#NewMarkerTalk').click(function() {

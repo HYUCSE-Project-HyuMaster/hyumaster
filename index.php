@@ -51,7 +51,7 @@
 					<span class='icon-bar'></span>
 					<span class='icon-bar'></span>
 				</button>
-				<a class='navbar-brand' href='/'><strong>HYU Master</strong></a>
+				<a class='navbar-brand' href='/'><strong>HYU Master</strong>&nbsp;&nbsp;<div class="fb-like" data-href="http://hyumaster.inoutsw.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></a>
 			</div>
 			<!--제목 부분 종료-->
 
@@ -100,32 +100,32 @@
 							<div class='modal-content'>
 								<div class='modal-header'>
 									<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-									<h4 class='modal-title'>새로운 마커 만들기</h4>
+									<h4 class='modal-title'>새로운 정보 등록</h4>
 								</div>
 								<div class='modal-body'>
 									<form role='form'>
 										<div class='form-group'>
-											<label>마커 위치 좌표</label>
+											<label>위치 좌표</label>
 											<input type='text' class='form-control' id='NewMarkerPosition' readOnly>
 										</div>
 
 										<div class='form-group'>
-											<label>마커 이름</label>
-											<input type='text' class='form-control' id='NewMarkerTitle' placeholder='제목 입력'>
+											<label>이름 입력</label>
+											<input type='text' class='form-control' id='NewMarkerTitle' placeholder='이름 입력'>
 										</div>
 
 										<div class='form-group'>
-											<label>마커 유형</label></br>
+											<label>유형 선택</label></br>
 											<div class='btn-group'>
 											  <button type='button' id='NewMarkerTalk' class='btn btn-default'>잡담</button>
 											  <button type='button' id='NewMarkerInform' class='btn btn-default'>정보 제공</button>
-											  <button type='button' id='NewMarkerLost' class='btn btn-default'>긴급 제보</button>
+											  <button type='button' id='NewMarkerLost' class='btn btn-default'>긴급 제보 / 분실물</button>
 											</div>
 										</div>
 
 										<div class='form-group'>
-											<label>마커 정보</label>
-											<textarea class='form-control' id='NewMarkerContent' rows='3' placeholder='내용 입력'></textarea>
+											<label>내용 입력</label>
+											<textarea class='form-control' id='NewMarkerContent' rows='4' placeholder='[잡담]은 1일간, [정보 제공]은 7일간 유지됩니다.'></textarea>
 										</div>
 									</form>
 								</div>
@@ -146,23 +146,27 @@
 
 					<div class='modal-header'>
 						<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
-						<h4 class='modal-title'><strong>마커 정보</strong></h4>
+						<h4 class='modal-title'><strong>정보</strong></h4>
 					</div>
 
 					<div class='modal-body'>
 						<form role='form'>
 							<div class='form-group'>
-								<label><strong><font color='#0100FF'>마커 이름</font></strong></label>
+								<label><strong><font color='#0100FF'>이름</font></strong></label>
 								<div id='MarkerName'></div>
 							</div>
 
+							<hr>
+
 							<div class='form-group'>
-								<label><strong><font color='#ED4C00'>마커 유형</font></strong></label>
+								<label><strong><font color='#ED4C00'>유형</font></strong></label>
 								<div id='MarkerType'></div>
 							</div>
 
+							<hr>
+							
 							<div class='form-group'>
-								<label><strong><font color='#47C83E'>마커 정보</font></strong></label>
+								<label><strong><font color='#47C83E'>내용</font></strong></label>
 								<div id='MarkerContent'></div>
 							</div>
 						</form>
