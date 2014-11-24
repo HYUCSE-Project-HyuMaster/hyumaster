@@ -126,6 +126,16 @@
 
 			exit;
 		}
+		else
+		{
+			$response=array('result'=>'fail', 'server_message'=>'최초 접속이시네요! 등록이 완료되었습니다. 로그인 버튼을 다시 눌러주세요.');
+			echo json_encode($response);
+
+			session_unset();
+			session_destroy();
+
+			exit;
+		}
 	}
 
 	$result->data_seek(0);
