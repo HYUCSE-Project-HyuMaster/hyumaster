@@ -60,7 +60,7 @@ $(document).ready(function() {
 					activateTrafficMap : false,
 					activateBicycleMap : false,
 					minMaxLevel : [ 11, 14 ],
-					size : new nhn.api.map.Size(x,y)
+					size : new nhn.api.map.Size(x,y),
 			});
 	var oSlider = new nhn.api.map.ZoomControl();
 	oMap.addControl(oSlider);
@@ -153,7 +153,7 @@ $(document).ready(function() {
 								break;
 
 							case 'initial':
-								$('#MarkerType').text('기본 등록');
+								$('#MarkerType').text('건물 정보');
 								break;
 
 							default:
@@ -206,28 +206,44 @@ $(document).ready(function() {
 		//oMap.addOverlay(oMarker);
 	}
 	group1.setVisible(false);
-        group2.setVisible(false);
+    group2.setVisible(true);
 	//Marker Setup Function Definition End
+
+	var checkstate=true;
 	
 	//Marker Visibility
 	oMap.attach('zoom', function (oCustomEvent) {
-        	 if(oMap.getLevel()==11){
+        	 if(oMap.getLevel()==11)
+        	 {
         			group1.setVisible(false);
         			group2.setVisible(false);
+        			
+        			if(checkstate==true)
+        			{
+        				alert('이 레벨에서는 정보가 보이지 않습니다. 지도를 확대해 주세요.\n확대할수록 더 많은 정보를 볼 수 있습니다.');
+        				checkstate=false;
+        			}
         	 }
-        	 if(oMap.getLevel()==12){
+        	 if(oMap.getLevel()==12)
+        	 {
         			group1.setVisible(false);
         			group2.setVisible(true);
+        			checkstate=true;
         	 }
-        	 if(oMap.getLevel()==13){
-        			group1.setVisible(true);
-        			group2.setVisible(false);
-        	 }
-        	 if(oMap.getLevel()==14){
+        	 if(oMap.getLevel()==13)
+        	 {
         			group1.setVisible(true);
         			group2.setVisible(true);
+        			checkstate=true;
         	 }
-     	    });
+        	 if(oMap.getLevel()==14)
+        	 {
+        			group1.setVisible(true);
+        			group2.setVisible(true);
+        			checkstate=true;
+        	 }
+    });
+
 
 	//Custom Marker Setup start
 	var infoIcon = new nhn.api.map.Icon('http://hyumaster.inoutsw.com/images/sns/JungBoJaeGong.png', new nhn.api.map.Size(32, 37), oOffset);
