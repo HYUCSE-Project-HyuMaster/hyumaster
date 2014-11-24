@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Map API test</title>
+	<meta charset='utf-8'>
+	<meta name='description' content='HyuMaster'>
+	<meta name='author' content='한기훈'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
+	<script src='/js/jquery-2.1.1.min.js'></script>
+	<script src='//openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=80b8250819f94b385e19c8ce7c0cb90c'></script>
+	<link href='/css/main.css' rel='stylesheet' media='screen'>
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<meta name="viewport" content="width=device-width" />
+</head>
+
+<body>
+	<div id='map'></div>
+	 <button onclick="javascript:print();">get level</button>
+	<script>
+		var w=window,
+		d=document,
+		e=d.documntElement,
+		g=d.getElementsByTagName('body')[0],
+		x=w.innerWidth || e.clientWidth || g.clintWidth,
+		y=w.innerHeight || e.clientHeight || g.clientHeight;
+	
+		var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
+		var defaultLevel = 11;
+		var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
+						point : oHanyangUnivPoint,
+						zoom : defaultLevel,
+						enableWheelZoom : true,
+						useEffectInWheelZoom : true,
+						enableDragPan : true,
+						enableDblClickZoom : false,
+						mapMode : 0,
+						activateTrafficMap : false,
+						activateBicycleMap : false,
+						minMaxLevel : [ 9, 14 ],
+						size : new nhn.api.map.Size(x , y)		});
+		 var markerCount = 0;
+         
+         var oSize = new nhn.api.map.Size(28, 37);
+         var oOffset = new nhn.api.map.Size(14, 37);
+         var oIcon = new nhn.api.map.Icon('http://static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
+         
+         var mapInfoTestWindow = new nhn.api.map.InfoWindow(); // - info window 생성
+         mapInfoTestWindow.setVisible(false); // - infowindow 표시 여부 지정.
+         oMap.addOverlay(mapInfoTestWindow);     // - 지도에 추가.  
+
+         function print(){
+        	 alert(oMap.getLevel());
+         }
+         
+         var oLabel = new nhn.api.map.MarkerLabel(); // - 마커 라벨 선언.
+         oMap.addOverlay(oLabel); // - 마커 라벨 지도에 추가. 기본은 라벨이 보이지 않는 상태로 추가됨.
+
+         mapInfoTestWindow.attach('changeVisible', function(oCustomEvent) {
+                 if (oCustomEvent.visible) {
+                         oLabel.setVisible(false);
+                 }
+         });
+
+
+
+         oMap.attach('zoom', function (oCustomEvent) {
+
+        	 if(oMap.getLevel()!=13){
+        		 oMap.clearOverlay();
+        	 }
+        		 if(oMap.getLevel()==13){
+        				setMarker(37.5586678, 127.0423971, '의대');
+            	     	setMarker(37.5584197, 127.0434912, '인문관');
+            	     	setMarker(37.558795, 127.0442962, '자과대');
+            	     	setMarker(37.5580927, 127.0451949, '사범대');
+            	     	setMarker(37.5575795, 127.0441677, '학생회관');
+            	     	setMarker(37.5573469, 127.044613, '사과대');
+            	     	setMarker(37.5573419, 127.045649, '중도');
+            	     	setMarker(37.5560417, 127.043868, '애지문');
+           		     	setMarker(37.5566057, 127.0445473, '신본관');
+            	     	setMarker(37.556063, 127.0447431, '구본관');
+            	     	setMarker(37.5543599, 127.044176, '토목관');
+            	     	setMarker(37.5555586, 127.0453088, '노천');
+            	     	setMarker(37.5556885, 127.0462704, '2공');
+            	     	setMarker(37.556611, 127.0459115, '싸군');
+            	     	setMarker(37.5565579, 127.0456967, '1공');
+            	     	setMarker(37.556655, 127.0468114, '생과대');
+            	     	setMarker(37.5564528, 127.0481373, '법대');
+            	     	setMarker(37.5567861, 127.0487942, '경금대');
+            	     	setMarker(37.5565724, 127.0499707, '올림픽체육관');
+            	     	setMarker(37.5558851, 127.0493578, 'ITBT');
+            	     	setMarker(37.5554683, 127.0476054, '대운동장');
+            	     	setMarker(37.5547195, 127.0474345, 'FTC');
+            	     	setMarker(37.5548497, 127.0461396, '공업센터');
+            	     	setMarker(37.5545576, 127.0451938, '신소재');
+            	     	setMarker(37.5577022, 127.0467541, 'HIT');
+            	     	setMarker(37.5576011, 127.0486138, '행원파크');
+            	     	setMarker(37.5581749, 127.0482933, '경영대');
+            	     	setMarker(37.5564702, 127.0439899, '한양플라자');
+          	 }
+
+     	    });
+      
+         function setMarker(latitude, longitude, name)
+     	{
+     		var oMarker = new nhn.api.map.Marker(oIcon, { title: name});
+     		var oPoint = new nhn.api.map.LatLng(latitude, longitude);
+     		oMarker.setPoint(oPoint);
+     		oMap.addOverlay(oMarker);
+     	}
+
+
+     	
+
+         oMap.attach('click', function(oCustomEvent) {
+                 var oPoint = oCustomEvent.point;
+                 var oTarget = oCustomEvent.target;
+                 mapInfoTestWindow.setVisible(false);
+                 // 마커 클릭하면
+                 if (oTarget instanceof nhn.api.map.Marker) {
+                         // 겹침 마커 클릭한거면
+                         if (oCustomEvent.clickCoveredMarker) {
+                                 return;
+                         }
+                         // - InfoWindow 에 들어갈 내용은 setContent 로 자유롭게 넣을 수 있습니다. 외부 css를 이용할 수 있으며, 
+                         // - 외부 css에 선언된 class를 이용하면 해당 class의 스타일을 바로 적용할 수 있습니다.
+                         // - 단, DIV 의 position style 은 absolute 가 되면 안되며, 
+                         // - absolute 의 경우 autoPosition 이 동작하지 않습니다. 
+                         mapInfoTestWindow.setContent('<DIV style="border-top:1px solid; border-bottom:2px groove black; border-left:1px solid; border-right:2px groove black;margin-bottom:1px;color:black;background-color:white; width:auto; height:auto;">'+
+                         '<span style="color: #000000 !important;display: inline-block;font-size: 12px !important;font-weight: bold !important;letter-spacing: -1px !important;white-space: nowrap !important; padding: 2px 2px 2px 2px !important">' + 
+                         'Hello World <br /> ' + oTarget.getPoint()
+                         +'<span></div>');
+                         mapInfoTestWindow.setPoint(oTarget.getPoint());
+                         mapInfoTestWindow.setVisible(true);
+                         mapInfoTestWindow.setPosition({right : 15, top : 30});
+                         mapInfoTestWindow.autoPosition();
+                         return;
+                 }
+                 var oMarker = new nhn.api.map.Marker(oIcon, { title : 'marker : ' + oPoint.toString() });
+                 oMarker.setPoint(oPoint);
+                 oMap.addOverlay(oMarker);
+         });
+         
+            
+	</script>
+</body>
+
+</html>
