@@ -186,6 +186,18 @@
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- 휴마스터하단광고 -->
+		<style>
+			.adsbygoogle {
+				display: inline-block;
+				width: 100%;
+				height: 50px;
+			}
+		</style>
+		<ins class="adsbygoogle" data-ad-client="ca-pub-8652224314979074" data-ad-slot="4989212707"></ins>
+		<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 	</div>
 
 </body>

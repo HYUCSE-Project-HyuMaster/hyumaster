@@ -46,10 +46,10 @@ $(document).ready(function() {
 
 	//Naver Map API Script Start
 	var x=$(window).width();
-	var y=$(window).height()-50;
+	var y=$(window).height()-100;
 
 	var oHanyangUnivPoint = new nhn.api.map.LatLng(37.5575910, 127.0466885);
-	var defaultLevel = 12;
+	var defaultLevel = 13;
 	var oMap = new nhn.api.map.Map(document.getElementById('map'), { 
 					point : oHanyangUnivPoint,
 					zoom : defaultLevel,
@@ -226,7 +226,7 @@ $(document).ready(function() {
         	 }
         	 if(oMap.getLevel()==12)
         	 {
-        			group1.setVisible(true);
+        			group1.setVisible(false);
         			group2.setVisible(true);
 
         			zoomcheck=false;
