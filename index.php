@@ -66,14 +66,18 @@
 									<li><a href='#' id='AddNewMarker'>새로운 마커 만들기</a></li>
 							";
 						}
+						else
+						{
+							echo "<li><a href='#'>로그인하면 마커등록 가능</a></li>";
+						}
 					?>
 				</ul>
 				<ul class='nav navbar-nav navbar-right'>
 					<?php
 						if(isset($_SESSION['login_state']) && $_SESSION['login_state']==true)
-							echo "<li class='active'><a href='#' id='logoutbutton'>로그아웃</a></li>";
+							echo "<li class='active'><a href='#' id='logoutbutton'>[로그아웃]</a></li>";
 						else
-							echo "<li class='active'><a href='#' id='loginbutton'>로그인</a></li>";
+							echo "<li class='active'><a href='#' id='loginbutton'>[로그인]</a></li>";
 					?>
 				</ul>
 			</div>
